@@ -27,7 +27,7 @@ To cite this work use:
 
 ```tex
 @inproceedings{oliveira_sac2017,
-    author = {Thomaz Oliveira and Julio L\'opez and H\"useyin H{\i}\c{s}{\i}l and Armando Faz-Hern\'adez and Francisco Rodr\'iguez-Henr\'iquez},
+    author = {Thomaz Oliveira and Julio L\'opez and H\"useyin H{\i}\c{s}{\i}l and Armando Faz-Hern\'andez and Francisco Rodr\'iguez-Henr\'iquez},
     title = {How to (pre-)compute a ladder},
     booktitle = {Selected Areas in Cryptography – SAC 2017: 24th International Conference, Ottawa, Ontario, Canada, August 16 - 18, 2017, Revised Selected Papers},
     year = {2017},
