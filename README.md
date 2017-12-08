@@ -5,7 +5,7 @@ exchange/agreement.
 
 This gem implements X25519 (a.k.a. Curve25519) Elliptic Curve Diffie-Hellman
 function as described in [RFC7748] as a C extension using the
-high performance [rfc7748-precomputed] implementation based on the paper
+high performance [rfc7748_precomputed] implementation based on the paper
 [How to (pre-)compute a ladder].
 
 [RFC7748]: https://tools.ietf.org/html/rfc7748
