@@ -44,7 +44,7 @@ code of conduct.
 * Prime field arithmetic is optimized for the 4th and 6th generation of Intel Core processors (Haswell and Skylake micro-architectures).
 * Efficient integer multiplication using MULX instruction.
 * Integer additions accelerated with ADCX/ADOX instructions.
-* Key generation uses a read-only table of 8 KB (25 KB) for X25519 (X448).
+* Key generation uses a read-only table of 8 KB for X25519.
 
 ## Designers
 
