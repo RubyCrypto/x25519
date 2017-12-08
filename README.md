@@ -48,11 +48,15 @@ code of conduct.
 
 ## Designers
 
-Thomaz Oliveira, Computer Science Department, Cinvestav-IPN, Mexico.
-Julio López, University of Campinas, Brazil.
-Hüseyin Hisil, Yasar University, Turkey.
-Armando Faz-Hernández, University of Campinas, Brazil.
-Francisco Rodríguez-Henríquez, Computer Science Department, Cinvestav-IPN, Mexico.
+The X25519 Diffie-Hellman function was originally designed by Dan Bernstein.
+
+The optimized [rfc7748_precomputed] implementation was designed by:
+
+* Thomaz Oliveira, Computer Science Department, Cinvestav-IPN, Mexico.
+* Julio López, University of Campinas, Brazil.
+* Hüseyin Hisil, Yasar University, Turkey.
+* Armando Faz-Hernández, University of Campinas, Brazil.
+* Francisco Rodríguez-Henríquez, Computer Science Department, Cinvestav-IPN, Mexico.
 
 ## License
 
