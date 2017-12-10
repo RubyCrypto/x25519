@@ -2,14 +2,14 @@
  * Copyright (c) 2017 Armando Faz <armfazh@ic.unicamp.br>.
  * Institute of Computing.
  * University of Campinas, Brazil.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU Lesser General Public License as   
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
@@ -17,17 +17,7 @@
 */
 #include <fp25519_x64.h>
 #include <table_ladder_x25519.h>
-#include "rfc7748_precompted.h"
-#include "random.h"
-
-void print_X25519_key(argKey key)
-{
-	print_bytes(key,X25519_KEYSIZE_BYTES);
-}
-void random_X25519_key(argKey key)
-{
-	random_bytes(key,X25519_KEYSIZE_BYTES);
-}
+#include "x25519.h"
 
 /****** Implementation of Montgomery Ladder Algorithm ************/
 static inline void cswap_x64(uint64_t bit, uint64_t *const px, uint64_t *const py)

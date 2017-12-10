@@ -1,13 +1,8 @@
-
 # frozen_string_literal: true
-
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "x25519/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "x25519"
-  spec.version       = X25519::VERSION
+  spec.version       = "0.0.0"
   spec.authors       = ["Tony Arcieri"]
   spec.email         = ["bascule@gmail.com"]
   spec.summary       = "Public key cryptography library providing the X25519 D-H function"
@@ -22,6 +17,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.platform      = Gem::Platform::RUBY
+  spec.extensions    = "ext/x25519/extconf.rb"
 
   spec.required_ruby_version = ">= 2.2.2"
   spec.add_development_dependency "bundler", "~> 1.16"

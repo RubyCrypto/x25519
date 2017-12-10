@@ -12,12 +12,19 @@ high performance [rfc7748_precomputed] implementation based on the paper
 [How to (pre-)compute a ladder]: https://eprint.iacr.org/2017/264
 [rfc7748_precomputed]: https://github.com/armfazh/rfc7748_precomputed
 
+## Requirements
+
+* MRI 2.2+
+* x86_64 CPU (e.g. Intel, AMD)
+
+Other CPU architectures are not supported at this time.
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'x25519'
+gem "x25519"
 ```
 
 And then execute:
@@ -48,7 +55,9 @@ code of conduct.
 
 ## Designers
 
-The X25519 Diffie-Hellman function was originally designed by Dan Bernstein.
+The X25519 Diffie-Hellman function was originally designed by Dan Bernstein:
+
+https://cr.yp.to/ecdh.html
 
 The optimized [rfc7748_precomputed] implementation was designed by:
 
@@ -58,14 +67,16 @@ The optimized [rfc7748_precomputed] implementation was designed by:
 * Armando Faz-Hernández, University of Campinas, Brazil.
 * Francisco Rodríguez-Henríquez, Computer Science Department, Cinvestav-IPN, Mexico.
 
-## License
+## Copyright and License
 
-The gem is available as open source under the terms of the
+Copyright (c) 2017 Armando Faz, Tony Arcieri
+
+This gem is available as open source under the terms of the
 GNU Lesser General Public License v3.0 ([LICENSE](https://www.gnu.org/licenses/lgpl-3.0.txt))
 
 ## Code of Conduct
 
-Everyone interacting in the X25519 project’s codebases, issue trackers, chat
+Everyone interacting in the x25519.rb project’s codebases, issue trackers, chat
 rooms and mailing lists is expected to follow the [code of conduct].
 
 [code of conduct]: https://github.com/cryptosphere/x25519/blob/master/CODE_OF_CONDUCT.md
