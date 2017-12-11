@@ -1,4 +1,4 @@
-# miscreant.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![License: LGPL v3][license-image]][license-link]
+# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![License: LGPL v3][license-image]][license-link]
 
 [gem-shield]: https://badge.fury.io/rb/x25519.svg
 [gem-link]: https://rubygems.org/gems/x25519
