@@ -144,6 +144,8 @@ shared_secret_bytes = shared_secret.to_bytes
 
 #### `X25519::Scalar#to_bytes`: serialize a scalar as a `String`
 
+##### Return Value
+
 Returns a `String` containing a byte representation of this scalar:
 
 ##### Example
