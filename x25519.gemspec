@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.description = <<-DESCRIPTION.strip.gsub(/\s+/, " ")
     An efficient public key cryptography library for Ruby providing key
     exchange/agreement via the X25519 (a.k.a. Curve25519) Elliptic Curve
-    Diffie-Hellman function as described in [RFC7748].
+    Diffie-Hellman function as described in RFC 7748.
   DESCRIPTION
   spec.homepage      = "https://github.com/cryptosphere/x25519"
   spec.license       = "MIT"
