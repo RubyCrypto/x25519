@@ -2,32 +2,22 @@
  * Copyright (c) 2017 Armando Faz <armfazh@ic.unicamp.br>.
  * Institute of Computing.
  * University of Campinas, Brazil.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU Lesser General Public License as   
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#include <fp25519_x64.h>
-#include <table_ladder_x25519.h>
-#include "rfc7748_precompted.h"
-#include "random.h"
-
-void print_X25519_key(argKey key)
-{
-	print_bytes(key,X25519_KEYSIZE_BYTES);
-}
-void random_X25519_key(argKey key)
-{
-	random_bytes(key,X25519_KEYSIZE_BYTES);
-}
+#include "fp25519_x64.h"
+#include "table_ladder_x25519.h"
+#include "rfc7748_precomputed.h"
 
 /****** Implementation of Montgomery Ladder Algorithm ************/
 static inline void cswap_x64(uint64_t bit, uint64_t *const px, uint64_t *const py)
@@ -42,7 +32,7 @@ static inline void cswap_x64(uint64_t bit, uint64_t *const px, uint64_t *const p
     }
 }
 
-static void x25519_shared_secret_x64(argKey shared, argKey session_key, argKey private_key)
+void x25519_rfc7748_precomputed_scalarmult(uint8_t *shared, uint8_t *private_key, uint8_t *session_key)
 {
 	ALIGN uint64_t buffer[4*NUM_WORDS_ELTFP25519_X64];
 	ALIGN uint64_t coordinates[4*NUM_WORDS_ELTFP25519_X64];
@@ -143,11 +133,15 @@ static void x25519_shared_secret_x64(argKey shared, argKey session_key, argKey p
 	private_key[0]  = (uint8_t)(save & 0xFF);
 }
 
-static void x25519_keygen_precmp_x64(argKey session_key, argKey private_key)
+void x25519_rfc7748_precomputed_scalarmult_base(uint8_t *session_key, uint8_t *private_key)
 {
 	ALIGN uint64_t buffer[4*NUM_WORDS_ELTFP25519_X64];
 	ALIGN uint64_t coordinates[4*NUM_WORDS_ELTFP25519_X64];
 	ALIGN uint64_t workspace[4*NUM_WORDS_ELTFP25519_X64];
+	const int ite[4] = {64,64,64,63};
+	const int q = 3;
+	uint64_t swap = 1;
+	uint64_t bit;
 	uint64_t save;
 
 	int i=0, j=0, k=0;
@@ -191,17 +185,13 @@ static void x25519_keygen_precmp_x64(argKey session_key, argKey private_key)
 	Ur2[0] = 0x7e94e1fec82faabd;
 
 	/* main-loop */
-    const int ite[4] = {64,64,64,63};
-	const int q = 3;
-    uint64_t swap = 1;
-
 	j = q;
 	for(i=0;i<NUM_WORDS_ELTFP25519_X64;i++)
 	{
 		while(j < ite[i])
 		{
             k = (64*i+j-q);
-			uint64_t bit = (key[i]>>j)&0x1;
+			bit = (key[i]>>j)&0x1;
 			swap = swap ^ bit;
 			cswap_x64(swap, Ur1, Ur2);
 			cswap_x64(swap, Zr1, Zr2);
@@ -239,6 +229,3 @@ static void x25519_keygen_precmp_x64(argKey session_key, argKey private_key)
     private_key[X25519_KEYSIZE_BYTES-1] = (uint8_t)((save>>16) & 0xFF);
     private_key[0]  = (uint8_t)(save & 0xFF);
 }
-
-const KeyGen X25519_KeyGen_x64 = x25519_keygen_precmp_x64;
-const Shared X25519_Shared_x64 = x25519_shared_secret_x64;

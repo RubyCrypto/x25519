@@ -2,14 +2,14 @@
  * Copyright (c) 2017 Armando Faz <armfazh@ic.unicamp.br>.
  * Institute of Computing.
  * University of Campinas, Brazil.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU Lesser General Public License as   
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, version 3.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
@@ -34,8 +34,6 @@ typedef ALIGN uint64_t EltFp25519_1w_Buffer_x64[2*NUM_WORDS_ELTFP25519_X64];
 typedef ALIGN uint64_t EltFp25519_2w_x64[2*NUM_WORDS_ELTFP25519_X64];
 typedef ALIGN uint64_t EltFp25519_2w_Buffer_x64[4*NUM_WORDS_ELTFP25519_X64];
 
-void print_bytes(uint8_t * A,int num_bytes);
-
 /* Integer Arithmetic */
 void mul2_256x256_integer_x64(uint64_t *const c, uint64_t *const a, uint64_t *const b);
 void sqr2_256x256_integer_x64(uint64_t *const c, uint64_t *const a);
@@ -47,10 +45,8 @@ void red_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a);
 
 /* Prime Field Util */
 void random_EltFp25519_1w_x64(uint64_t *A);
-void print_EltFp25519_1w_x64(uint64_t *A);
 int compare_EltFp25519_1w_x64(uint64_t *A, uint64_t *B);
 void random_EltFp25519_2w_x64(uint64_t *A);
-void print_EltFp25519_2w(uint64_t *A);
 int compare_EltFp25519_2w(uint64_t *A, uint64_t *B);
 
 /* Prime Field Arithmetic */
