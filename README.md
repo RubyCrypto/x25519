@@ -1,4 +1,11 @@
-# x25519.rb
+# miscreant.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![License: LGPL v3][license-image]][license-link]
+
+[gem-shield]: https://badge.fury.io/rb/x25519.svg
+[gem-link]: https://rubygems.org/gems/x25519
+[build-image]: https://travis-ci.org/cryptosphere/x25519.svg?branch=master
+[build-link]: https://travis-ci.org/cryptosphere/x25519
+[license-image]: https://img.shields.io/badge/License-LGPL%20v3-blue.svg
+[license-link]: https://www.gnu.org/licenses/lgpl-3.0
 
 An efficient public key cryptography library for Ruby providing key
 exchange/agreement.
