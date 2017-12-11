@@ -20,7 +20,7 @@ static void cX25519_Scalar_mark(X25519_KEY *scalar);
 static void cX25519_Scalar_free(X25519_KEY *scalar);
 static VALUE cX25519_Scalar_generate(VALUE self);
 static VALUE cX25519_Scalar_initialize(VALUE self, VALUE bytes);
-static VALUE cX25519_Scalar_public_key(VALUE self);
+static VALUE cX25519_Scalar_multiply_base(VALUE self);
 static VALUE cX25519_Scalar_multiply(VALUE self, VALUE montgomery_u);
 static VALUE cX25519_Scalar_to_bytes(VALUE self);
 
@@ -58,7 +58,8 @@ void Init_x25519()
     rb_define_alloc_func(cX25519_Scalar, cX25519_Scalar_allocate);
     rb_define_singleton_method(cX25519_Scalar, "generate", cX25519_Scalar_generate, 0);
     rb_define_method(cX25519_Scalar, "initialize", cX25519_Scalar_initialize, 1);
-    rb_define_method(cX25519_Scalar, "public_key", cX25519_Scalar_public_key, 0);
+    rb_define_method(cX25519_Scalar, "multiply_base", cX25519_Scalar_multiply_base, 0);
+    rb_define_method(cX25519_Scalar, "public_key", cX25519_Scalar_multiply_base, 0);
     rb_define_method(cX25519_Scalar, "multiply", cX25519_Scalar_multiply, 1);
     rb_define_method(cX25519_Scalar, "diffie_hellman", cX25519_Scalar_multiply, 1);
     rb_define_method(cX25519_Scalar, "to_bytes", cX25519_Scalar_to_bytes, 0);
@@ -208,7 +209,7 @@ static VALUE cX25519_Scalar_initialize(VALUE self, VALUE bytes)
 
 /* Obtain a public key for an X25519 private scalar
  * (i.e. fixed base scalar multiplication ) */
-static VALUE cX25519_Scalar_public_key(VALUE self)
+static VALUE cX25519_Scalar_multiply_base(VALUE self)
 {
     X25519_KEY *scalar = NULL, public_key;
     VALUE public_key_str;
