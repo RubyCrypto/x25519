@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "x25519"
-  spec.version       = "0.0.0"
+  spec.version       = "0.1.0"
   spec.authors       = ["Tony Arcieri"]
   spec.email         = ["bascule@gmail.com"]
   spec.summary       = "Public key cryptography library providing the X25519 D-H function"

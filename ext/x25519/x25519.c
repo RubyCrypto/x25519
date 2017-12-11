@@ -7,7 +7,7 @@
 #include "x25519.h"
 
 /* The X25519::VERSION */
-#define GEM_VERSION "0.0.0"
+#define GEM_VERSION "0.1.0"
 
 /* X25519 module method prototypes */
 static VALUE X25519_backend(VALUE self);
