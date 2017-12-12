@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "x25519/version"
+require File.expand_path("lib/x25519/version", __dir__)
 
 Gem::Specification.new do |spec|
   spec.name          = "x25519"
