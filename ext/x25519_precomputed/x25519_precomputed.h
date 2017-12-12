@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef RFC7748_PRECOMPUTED_H
-#define RFC7748_PRECOMPUTED_H
+#ifndef ED25519_PRECOMPUTED_H
+#define ED25519_PRECOMPUTED_H
 
 #include <stdint.h>
 
@@ -34,4 +34,4 @@ void x25519_precomputed_scalarmult(uint8_t *shared, uint8_t *private_key, uint8_
 void x25519_precomputed_scalarmult_base(uint8_t *session_key, uint8_t *private_key);
 int check_4th_gen_intel_core_features();
 
-#endif /* RFC7748_PRECOMPUTED_H */
+#endif /* ED25519_PRECOMPUTED_H */

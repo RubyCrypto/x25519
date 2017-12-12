@@ -1,5 +1,5 @@
-#ifndef RFC7748_REF10_H
-#define RFC7748_REF10_H
+#ifndef X25519_REF10_H
+#define X25519_REF10_H
 
 #include <stdint.h>
 
@@ -12,4 +12,4 @@ int x25519_ref10_scalarmult(uint8_t *q, const uint8_t *n, const uint8_t *p);
 /* Variable-base scalar multiplication */
 int x25519_ref10_scalarmult_base(uint8_t *q, const uint8_t *n);
 
-#endif /* RFC7748_REF10_H */
+#endif /* X25519_REF10_H */
