@@ -30,4 +30,8 @@
 #define X25519_KEYSIZE_BYTES 32
 typedef ALIGN uint8_t X25519_KEY[X25519_KEYSIZE_BYTES];
 
+void x25519_precomputed_scalarmult(uint8_t *shared, uint8_t *private_key, uint8_t *session_key);
+void x25519_precomputed_scalarmult_base(uint8_t *session_key, uint8_t *private_key);
+int check_4th_gen_intel_core_features();
+
 #endif /* RFC7748_PRECOMPUTED_H */

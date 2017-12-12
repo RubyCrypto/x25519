@@ -16,7 +16,7 @@ RSpec.describe X25519 do
 
     context "RFC 7748 test vectors" do
       it "passes the test vectors" do
-        X25519_TEST_VECTORS .each do |v|
+        X25519_VARIABLE_BASE_TEST_VECTORS.each do |v|
           shared_secret = described_class.diffie_hellman(unhex(v.scalar), unhex(v.input_coord))
           expect(hex(shared_secret)).to eq v.output_coord
         end

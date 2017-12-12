@@ -17,7 +17,7 @@
 */
 #include "fp25519_x64.h"
 #include "table_ladder_x25519.h"
-#include "rfc7748_precomputed.h"
+#include "x25519_precomputed.h"
 
 /****** Implementation of Montgomery Ladder Algorithm ************/
 static inline void cswap_x64(uint64_t bit, uint64_t *const px, uint64_t *const py)
@@ -32,7 +32,7 @@ static inline void cswap_x64(uint64_t bit, uint64_t *const px, uint64_t *const p
     }
 }
 
-void x25519_rfc7748_precomputed_scalarmult(uint8_t *shared, uint8_t *private_key, uint8_t *session_key)
+void x25519_precomputed_scalarmult(uint8_t *shared, uint8_t *private_key, uint8_t *session_key)
 {
 	ALIGN uint64_t buffer[4*NUM_WORDS_ELTFP25519_X64];
 	ALIGN uint64_t coordinates[4*NUM_WORDS_ELTFP25519_X64];
@@ -133,7 +133,7 @@ void x25519_rfc7748_precomputed_scalarmult(uint8_t *shared, uint8_t *private_key
 	private_key[0]  = (uint8_t)(save & 0xFF);
 }
 
-void x25519_rfc7748_precomputed_scalarmult_base(uint8_t *session_key, uint8_t *private_key)
+void x25519_precomputed_scalarmult_base(uint8_t *session_key, uint8_t *private_key)
 {
 	ALIGN uint64_t buffer[4*NUM_WORDS_ELTFP25519_X64];
 	ALIGN uint64_t coordinates[4*NUM_WORDS_ELTFP25519_X64];
