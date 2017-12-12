@@ -70,7 +70,7 @@ bob_secret = bob_sk.diffie_hellman(alice_pk).to_bytes
 alice_secret == bob_secret # true
 ```
 
-## `X25519::Scalar`: private keys
+## X25519::Scalar: private keys
 
 The `X25519::Scalar` class represents secret integers used as X25519 private
 keys. These secret integers are multiplied by a well-known base point to
@@ -155,7 +155,7 @@ secret_key = X25519::Scalar.new(...)
 File.write("alice.key", secret_key.to_bytes)
 ```
 
-## `X25519::MontgomeryU`: public keys and shared secrets
+## X25519::MontgomeryU: public keys and shared secrets
 
 The `X25519::MontgomeryU` class represents a coordinate (specifically a
 Montgomery-u coordinate) on the elliptic curve. In the X25519 Diffie-Hellman
@@ -186,7 +186,7 @@ public_key = X25519::MontgomeryU..new(...)
 File.write("bob.pub", public_key.to_bytes)
 ```
 
-## `X25519`: module-level functionality
+## X25519: module-level functionality
 
 ### `X25519.diffie_hellman(secret_key, public_key)`: shorthand `String`-oriented API
 
