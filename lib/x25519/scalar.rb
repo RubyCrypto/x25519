@@ -16,7 +16,7 @@ module X25519
     # @param bytes [String] 32-byte random secret scalar
     def initialize(bytes)
       X25519.validate_key_bytes(bytes)
-      @bytes = bytes
+      @scalar_bytes = bytes
     end
 
     # Variable-base scalar multiplication a.k.a. Diffie-Hellman
@@ -28,7 +28,7 @@ module X25519
     # @return [X25519::MontgomeryU] resulting point (i.e. D-H shared secret)
     def multiply(montgomery_u)
       raise TypeError, "expected X25519::MontgomeryU, got #{montgomery_u}" unless montgomery_u.is_a?(MontgomeryU)
-      MontgomeryU.new(X25519.provider.multiply(@bytes, montgomery_u.to_bytes))
+      MontgomeryU.new(X25519.provider.scalarmult(@scalar_bytes, montgomery_u.to_bytes))
     end
     alias diffie_hellman multiply
 
@@ -37,7 +37,7 @@ module X25519
     #
     # @return [X25519::MontgomeryU] resulting point (i.e. public key)
     def multiply_base
-      MontgomeryU.new(X25519.provider.multiply_base(@bytes))
+      MontgomeryU.new(X25519.provider.scalarmult_base(@scalar_bytes))
     end
     alias public_key multiply_base
 
@@ -45,7 +45,7 @@ module X25519
     #
     # @return [String] scalar converted to a bytestring
     def to_bytes
-      @bytes
+      @scalar_bytes
     end
 
     # String inspection that does not leak the private scalar

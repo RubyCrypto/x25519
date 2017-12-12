@@ -7,25 +7,27 @@ the X25519 Diffie-Hellman algorithm
 #include "x25519_precomputed.h"
 
 static VALUE mX25519 = Qnil;
-static VALUE mX25519_Precomputed = Qnil;
+static VALUE mX25519_Provider = Qnil;
+static VALUE mX25519_Provider_Precomputed = Qnil;
 
-static VALUE mX25519_Scalar_multiply(VALUE self, VALUE scalar, VALUE montgomery_u);
-static VALUE mX25519_Scalar_multiply_base(VALUE self, VALUE scalar);
+static VALUE mX25519_Provider_Precomputed_scalarmult(VALUE self, VALUE scalar, VALUE montgomery_u);
+static VALUE mX25519_Provider_Precomputed_scalarmult_base(VALUE self, VALUE scalar);
 static VALUE mX25519_is_available(VALUE self);
 
 /* Initialize the x25519_precomputed C extension */
 void Init_x25519_precomputed()
 {
     mX25519 = rb_define_module("X25519");
-    mX25519_Precomputed = rb_define_module_under(mX25519, "Precomputed");
+    mX25519_Provider = rb_define_module_under(mX25519, "Provider");
+    mX25519_Provider_Precomputed = rb_define_module_under(mX25519_Provider, "Precomputed");
 
-    rb_define_singleton_method(mX25519_Precomputed, "multiply", mX25519_Scalar_multiply, 2);
-    rb_define_singleton_method(mX25519_Precomputed, "multiply_base", mX25519_Scalar_multiply_base, 1);
-    rb_define_singleton_method(mX25519_Precomputed, "available?", mX25519_is_available, 0);
+    rb_define_singleton_method(mX25519_Provider_Precomputed, "scalarmult", mX25519_Provider_Precomputed_scalarmult, 2);
+    rb_define_singleton_method(mX25519_Provider_Precomputed, "scalarmult_base", mX25519_Provider_Precomputed_scalarmult_base, 1);
+    rb_define_singleton_method(mX25519_Provider_Precomputed, "available?", mX25519_is_available, 0);
 }
 
 /* Variable-base scalar multiplication */
-static VALUE mX25519_Scalar_multiply(VALUE self, VALUE scalar, VALUE montgomery_u)
+static VALUE mX25519_Provider_Precomputed_scalarmult(VALUE self, VALUE scalar, VALUE montgomery_u)
 {
     /* X25519_KEY ensures inputs are aligned at 32-bytes */
     X25519_KEY raw_scalar, raw_montgomery_u, product;
@@ -58,7 +60,7 @@ static VALUE mX25519_Scalar_multiply(VALUE self, VALUE scalar, VALUE montgomery_
 }
 
 /* Fixed-base scalar multiplication */
-static VALUE mX25519_Scalar_multiply_base(VALUE self, VALUE scalar)
+static VALUE mX25519_Provider_Precomputed_scalarmult_base(VALUE self, VALUE scalar)
 {
     /* X25519_KEY ensures inputs are aligned at 32-bytes */
     X25519_KEY raw_scalar, product;

@@ -18,14 +18,13 @@ module X25519
   # Size of an X25519 key (public or private) in bytes
   KEY_SIZE = 32
 
+  # ref10 is the default provider
+  @provider = X25519::Provider::Ref10
+
   # X25519::Precomputed requires a 4th generation Intel Core CPU or newer,
   # so only enable it if we detect we're on a supported platform. Otherwise,
   # fall back to the ref10 portable C implementation.
-  @provider = if X25519::Precomputed.available?
-                X25519::Precomputed
-              else
-                X25519::Ref10
-              end
+  @provider = X25519::Provider::Precomputed if X25519::Provider::Precomputed.available?
 
   # Selected provider based on the logic above
   def provider
@@ -42,7 +41,7 @@ module X25519
   def diffie_hellman(scalar_bytes, montgomery_u_bytes)
     validate_key_bytes(scalar_bytes)
     validate_key_bytes(montgomery_u_bytes)
-    X25519.provider.multiply(scalar_bytes, montgomery_u_bytes)
+    X25519.provider.scalarmult(scalar_bytes, montgomery_u_bytes)
   end
 
   # Ensure a serialized key meets the requirements
