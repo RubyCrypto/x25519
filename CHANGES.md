@@ -1,3 +1,13 @@
+# [1.0.0] (2017-12-12)
+
+[1.0.0]: https://github.com/cryptosphere/x25519/compare/v0.2.0...v1.0.0
+
+* [#8](https://github.com/cryptosphere/x25519/pull/8)
+  Add self-test
+
+* [#7](https://github.com/cryptosphere/x25519/pull/7)
+  Factor providers into the `X25519::Provider` namespace
+
 # [0.2.0] (2017-12-12)
 
 [0.2.0]: https://github.com/cryptosphere/x25519/compare/v0.1.0...v0.2.0
