@@ -70,68 +70,66 @@ bob_secret = bob_sk.diffie_hellman(alice_pk).to_bytes
 alice_secret == bob_secret # true
 ```
 
-## API
-
-### `X25519::Scalar`: private keys
+## `X25519::Scalar`: private keys
 
 The `X25519::Scalar` class represents secret integers used as X25519 private
 keys. These secret integers are multiplied by a well-known base point to
 obtain X25519 public keys (`X25519::MontgomeryU`).
 
-#### `X25519::Scalar.generate()`: make a random private key
+### `X25519::Scalar.generate()`: make a random private key
 
 Generate a random private scalar (using `SecureRandom`)
 
-##### Example
+**Example:**
 
 ```ruby
 secret_key = X25519::Scalar.generate
 ```
 
-#### `X25519::Scalar.new(bytes)`: load existing private key
+### `X25519::Scalar.new(bytes)`: load existing private key
 
 * `bytes`: a 32-byte `String` value containing the private key
 
-##### Example
+**Example:**
 
 ```ruby
 secret_key = X25519::Scalar.new(File.read("alice.key"))
 ```
 
-#### `X25519::Scalar#public_key()`: obtain public key for this scalar
+### `X25519::Scalar#public_key()`: obtain public key for this scalar
 
 NOTE: The `#multiply_base` method is an alias of this one.
 
 Performs fixed-base scalar multiplication (i.e. calculates public key)
 
-##### Return Value
+**Return Value:**
 
 Returns a `X25519::MontgomeryU` object which represents the public key for this private key/scalar.
 
-##### Example
+**Example:**
 
 ```ruby
 secret_key = X25519::Scalar.generate
 public_key = secret_key.public_key
 ```
 
-#### `X25519::Scalar#diffie_hellman(other_public_key)`: obtain public key for this scalar
+### `X25519::Scalar#diffie_hellman(other_public_key)`: obtain public key for this scalar
 
 NOTE: The `#multiply` method is an alias of this one.
 
 Performs variable-base scalar multiplication, computing a shared secret between
 our private scalar and someone else's public key/point.
 
-##### Return Value
-
-Returns a `X25519::MontgomeryU` object which represents the shared secret.
-
-##### Arguments
+**Arguments:**
 
 * `other_public_key`: a `X25519::MontgomeryU` object containing the public key
   with which we'd like to compute a shared secret.
 
-##### Example
+**Return Value:**
+
+Returns a `X25519::MontgomeryU` object which represents the shared secret.
+
+**Example:**
 
 ```ruby
 secret_key = X25519::Scalar.generate
@@ -144,63 +142,63 @@ shared_secret = secret_key.multiply(public_key)
 shared_secret_bytes = shared_secret.to_bytes
 ```
 
-#### `X25519::Scalar#to_bytes`: serialize a scalar as a `String`
+### `X25519::Scalar#to_bytes`: serialize a scalar as a `String`
 
-##### Return Value
+**Return Value:**
 
 Returns a `String` containing a byte representation of this scalar:
 
-##### Example
+**Example:**
 
 ```ruby
 secret_key = X25519::Scalar.new(...)
 File.write("alice.key", secret_key.to_bytes)
 ```
 
-### `X25519::MontgomeryU`: public keys and shared secrets
+## `X25519::MontgomeryU`: public keys and shared secrets
 
 The `X25519::MontgomeryU` class represents a coordinate (specifically a
 Montgomery-u coordinate) on the elliptic curve. In the X25519 Diffie-Hellman
 function, these serve both as public keys and as shared secrets.
 
-#### `X25519::MontgomeryU.new(bytes)`: load existing public key
+### `X25519::MontgomeryU.new(bytes)`: load existing public key
 
-##### Arguments
+**Arguments:**
 
 * `bytes`: a 32-byte `String` value containing the public key
 
-##### Example
+**Example:**
 
 ```ruby
 public_key = X25519::MontgomeryU.new(File.read("bob.pub"))
 ```
 
-#### `X25519::MontgomeryU#to_bytes`: serialize a Montgomery-u coordinate as a `String`
+### `X25519::MontgomeryU#to_bytes`: serialize a Montgomery-u coordinate as a `String`
 
-##### Return Value
+**Return Value:**
 
 Returns a `String` containing a byte representation of a compressed Montgomery-u coordinate:
 
-##### Example
+**Example:**
 
 ```ruby
 public_key = X25519::MontgomeryU..new(...)
 File.write("bob.pub", public_key.to_bytes)
 ```
 
-### `X25519`: module-level functionality
+## `X25519`: module-level functionality
 
-#### `X25519.diffie_hellman(secret_key, public_key)`: shorthand `String`-oriented API
+### `X25519.diffie_hellman(secret_key, public_key)`: shorthand `String`-oriented API
 
 If you'd like to avoid the object-oriented API, you can use a simplified API which
 acts entirely on bytestrings.
 
-##### Arguments
+**Arguments:**
 
 * `secret_key`: a 32-byte `String` containing a private scalar
 * `public_key`: a 32-byte `String` containing a compressed Montgomery-u coordinate
 
-##### Return Value
+**Return Value:**
 
 Returns a `String` containing a 32-byte compressed Montgomery-u coordinate
 
