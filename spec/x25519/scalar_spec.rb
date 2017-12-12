@@ -23,12 +23,23 @@ RSpec.describe X25519::Scalar do
 
     context "RFC 7748 test vectors" do
       it "passes the test vectors" do
-        X25519_VARIABLE_BASE_TEST_VECTORS.each do |v|
+        X25519::TestVectors::VARIABLE_BASE.each do |v|
           scalar = described_class.new(unhex(v.scalar))
           point  = X25519::MontgomeryU.new(unhex(v.input_coord))
 
           shared_secret = scalar.multiply(point)
           expect(hex(shared_secret.to_bytes)).to eq v.output_coord
+        end
+      end
+    end
+  end
+
+  describe "#multiply_base" do
+    context "RFC 7748 test vectors" do
+      it "passes the test vectors" do
+        X25519::TestVectors::FIXED_BASE.each do |v|
+          scalar = described_class.new(unhex(v.scalar))
+          expect(hex(scalar.multiply_base.to_bytes)).to eq v.output_coord
         end
       end
     end
