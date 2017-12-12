@@ -19,6 +19,9 @@ module X25519
   # Size of an X25519 key (public or private) in bytes
   KEY_SIZE = 32
 
+  # Raised when the built-in self-test fails
+  SelfTestFailure = Class.new(StandardError)
+
   # ref10 is the default provider
   @provider = X25519::Provider::Ref10
 
@@ -56,12 +59,12 @@ module X25519
   def self_test
     X25519::TestVectors::VARIABLE_BASE.each do |v|
       shared_secret = provider.scalarmult([v.scalar].pack("H*"), [v.input_coord].pack("H*"))
-      raise "self test failed!" unless shared_secret.unpack("H*").first == v.output_coord
+      raise SelfTestFailure, "self test failed!" unless shared_secret.unpack("H*").first == v.output_coord
     end
 
     X25519::TestVectors::FIXED_BASE.each do |v|
       public_key = provider.scalarmult_base([v.scalar].pack("H*"))
-      raise "self test failed!" unless public_key.unpack("H*").first == v.output_coord
+      raise SelfTestFailure, "self test failed!" unless public_key.unpack("H*").first == v.output_coord
     end
 
     true
