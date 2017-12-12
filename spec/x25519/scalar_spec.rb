@@ -23,7 +23,7 @@ RSpec.describe X25519::Scalar do
 
     context "RFC 7748 test vectors" do
       it "passes the test vectors" do
-        X25519_TEST_VECTORS.each do |v|
+        X25519_VARIABLE_BASE_TEST_VECTORS.each do |v|
           scalar = described_class.new(unhex(v.scalar))
           point  = X25519::MontgomeryU.new(unhex(v.input_coord))
 
@@ -39,7 +39,6 @@ RSpec.describe X25519::Scalar do
       bytes = scalar.to_bytes
       expect(bytes).to be_a String
       expect(bytes.encoding).to eq Encoding::BINARY
-
       expect(hex(bytes)).to eq scalar_hex
     end
   end

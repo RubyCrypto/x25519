@@ -1,4 +1,5 @@
 #include "fe.h"
+#include "x25519_ref10.h"
 
 int x25519_ref10_scalarmult(uint8_t *q, const uint8_t *n, const uint8_t *p)
 {

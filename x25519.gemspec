@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   spec.platform      = Gem::Platform::RUBY
-  spec.extensions    = "ext/x25519/extconf.rb"
+  spec.extensions    = ["ext/x25519_precomputed/extconf.rb", "ext/x25519_ref10/extconf.rb"]
 
   spec.required_ruby_version = ">= 2.2.2"
   spec.add_development_dependency "bundler", "~> 1.16"

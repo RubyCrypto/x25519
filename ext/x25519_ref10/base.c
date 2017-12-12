@@ -1,8 +1,5 @@
 #include "fe.h"
-
-int x25519_ref10_scalarmult(uint8_t *q,
-  const uint8_t *n,
-  const uint8_t *p);
+#include "x25519_ref10.h"
 
 static const uint8_t x25519_basepoint[32] = {9};
 

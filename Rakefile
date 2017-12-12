@@ -6,8 +6,10 @@ require "rake/clean"
 CLEAN.include("**/*.o", "**/*.so", "**/*.bundle", "pkg", "tmp")
 
 require "rake/extensiontask"
-Rake::ExtensionTask.new("x25519") do |ext|
-  ext.ext_dir = "ext/x25519"
+%w[precomputed ref10].each do |provider|
+  Rake::ExtensionTask.new("x25519_#{provider}") do |ext|
+    ext.ext_dir = "ext/x25519_#{provider}"
+  end
 end
 
 require "rspec/core/rake_task"
