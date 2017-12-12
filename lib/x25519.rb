@@ -6,6 +6,7 @@ require "x25519/version"
 
 require "x25519/montgomery_u"
 require "x25519/scalar"
+require "x25519/test_vectors"
 
 # Native extension backends
 require "x25519_ref10"
@@ -50,4 +51,20 @@ module X25519
     return true if key_bytes.bytesize == KEY_SIZE
     raise ArgumentError, "expected #{KEY_SIZE}-byte String, got #{key_bytes.bytesize}"
   end
+
+  # Perform a self-test to ensure the selected provider is working
+  def self_test
+    X25519::TestVectors::VARIABLE_BASE.each do |v|
+      shared_secret = provider.scalarmult([v.scalar].pack("H*"), [v.input_coord].pack("H*"))
+      raise "self test failed!" unless shared_secret.unpack("H*").first == v.output_coord
+    end
+
+    X25519::TestVectors::FIXED_BASE.each do |v|
+      public_key = provider.scalarmult_base([v.scalar].pack("H*"))
+      raise "self test failed!" unless public_key.unpack("H*").first == v.output_coord
+    end
+  end
 end
+
+# Automatically run self-test when library loads
+X25519.self_test

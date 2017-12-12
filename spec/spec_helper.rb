@@ -3,7 +3,6 @@
 require "bundler/setup"
 require "x25519"
 require "support/provider_examples"
-require "support/test_vectors"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
