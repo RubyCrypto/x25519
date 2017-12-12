@@ -63,6 +63,8 @@ module X25519
       public_key = provider.scalarmult_base([v.scalar].pack("H*"))
       raise "self test failed!" unless public_key.unpack("H*").first == v.output_coord
     end
+
+    true
   end
 end
 
