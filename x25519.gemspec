@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "x25519/version"
+
 Gem::Specification.new do |spec|
   spec.name          = "x25519"
-  spec.version       = "0.1.0"
+  spec.version       = X25519::VERSION
   spec.authors       = ["Tony Arcieri"]
   spec.email         = ["bascule@gmail.com"]
   spec.summary       = "Public key cryptography library providing the X25519 D-H function"
