@@ -1,3 +1,9 @@
+# [1.0.1] (2017-12-12)
+
+[1.0.1]: https://github.com/cryptosphere/x25519/compare/v1.0.0...v1.0.1
+
+* Have `X25519.self_test` return true on success
+
 # [1.0.0] (2017-12-12)
 
 [1.0.0]: https://github.com/cryptosphere/x25519/compare/v0.2.0...v1.0.0
