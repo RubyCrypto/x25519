@@ -1,3 +1,11 @@
+# [1.0.2] (2017-12-13)
+
+[1.0.2]: https://github.com/cryptosphere/x25519/compare/v1.0.1...v1.0.2
+
+* [#9](https://github.com/cryptosphere/x25519/pull/9)
+  Make `X25519.provider` an `attr_accessor`
+* Raise `X25519::SelfTestFailure` when self-test fails
+
 # [1.0.1] (2017-12-12)
 
 [1.0.1]: https://github.com/cryptosphere/x25519/compare/v1.0.0...v1.0.1
