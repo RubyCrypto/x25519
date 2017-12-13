@@ -18,9 +18,15 @@ high performance [rfc7748_precomputed] implementation based on the paper
 [How to (pre-)compute a ladder]
 (with fallback to the ref10 C implementation).
 
+X25519 is one of two notable algorithms implemented atop the Curve25519
+elliptic curve. The [ed25519 gem] is a related project of this one,
+and implements the Ed25519 signature scheme on the twisted Edwards form of
+Curve25519.
+
 [RFC7748]: https://tools.ietf.org/html/rfc7748
 [How to (pre-)compute a ladder]: https://eprint.iacr.org/2017/264
 [rfc7748_precomputed]: https://github.com/armfazh/rfc7748_precomputed
+[ed25519 gem]: https://github.com/cryptosphere/ed25519
 
 ## Requirements
 
