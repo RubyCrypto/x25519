@@ -22,18 +22,18 @@ module X25519
   # Raised when the built-in self-test fails
   SelfTestFailure = Class.new(StandardError)
 
+  class << self
+    # Obtain the backend provider module
+    attr_accessor :provider
+  end
+
   # ref10 is the default provider
-  @provider = X25519::Provider::Ref10
+  self.provider = X25519::Provider::Ref10
 
   # X25519::Precomputed requires a 4th generation Intel Core CPU or newer,
   # so only enable it if we detect we're on a supported platform. Otherwise,
   # fall back to the ref10 portable C implementation.
-  @provider = X25519::Provider::Precomputed if X25519::Provider::Precomputed.available?
-
-  # Selected provider based on the logic above
-  def provider
-    @provider
-  end
+  self.provider = X25519::Provider::Precomputed if X25519::Provider::Precomputed.available?
 
   # Raw Diffie-Hellman function that acts directly on bytestrings. An
   # alternative to the object-oriented API
