@@ -1,3 +1,10 @@
+# [1.0.3] (2017-12-13)
+
+[1.0.3]: https://github.com/cryptosphere/x25519/compare/v1.0.2...v1.0.3
+
+* [#10](https://github.com/cryptosphere/x25519/pull/10)
+  Detect degenerate (i.e. all-zero) public keys (fixes #6)
+
 # [1.0.2] (2017-12-13)
 
 [1.0.2]: https://github.com/cryptosphere/x25519/compare/v1.0.1...v1.0.2
