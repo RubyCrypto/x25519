@@ -26,20 +26,20 @@ module X25519
     # @param montgomery_u [X25519::MontgomeryU] coordinate of the public key/point to perform D-H with
     #
     # @return [X25519::MontgomeryU] resulting point (i.e. D-H shared secret)
-    def multiply(montgomery_u)
+    def diffie_hellman(montgomery_u)
       raise TypeError, "expected X25519::MontgomeryU, got #{montgomery_u}" unless montgomery_u.is_a?(MontgomeryU)
-      MontgomeryU.new(X25519.provider.scalarmult(@scalar_bytes, montgomery_u.to_bytes))
+      MontgomeryU.new(X25519.diffie_hellman(@scalar_bytes, montgomery_u.to_bytes))
     end
-    alias diffie_hellman multiply
+    alias multiply diffie_hellman
 
     # Fixed-base scalar multiplication. Calculates a public key from a
     # private scalar
     #
     # @return [X25519::MontgomeryU] resulting point (i.e. public key)
-    def multiply_base
-      MontgomeryU.new(X25519.provider.scalarmult_base(@scalar_bytes))
+    def public_key
+      MontgomeryU.new(X25519.calculate_public_key(@scalar_bytes))
     end
-    alias public_key multiply_base
+    alias multiply_base public_key
 
     # Return a bytestring representation of this scalar
     #

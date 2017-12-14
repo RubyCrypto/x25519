@@ -19,6 +19,9 @@ module X25519
   # Size of an X25519 key (public or private) in bytes
   KEY_SIZE = 32
 
+  # Raised when we detect a degenerate (i.e. all-zero) public key
+  InvalidKeyError = Class.new(StandardError)
+
   # Raised when the built-in self-test fails
   SelfTestFailure = Class.new(StandardError)
 
@@ -35,6 +38,18 @@ module X25519
   # fall back to the ref10 portable C implementation.
   self.provider = X25519::Provider::Precomputed if X25519::Provider::Precomputed.available?
 
+  # Raw fixed-base scalar multiplication function that acts directly on
+  # bytestrings. Calculates the coordinate of the elliptic curve point that
+  # represents the public key for a given scalar.
+  #
+  # @param scalar_bytes [String] a serialized private scalar
+  #
+  # @return [String] compressed Montgomery-u coordinate of the resulting point
+  def calculate_public_key(scalar_bytes)
+    validate_key_bytes(scalar_bytes)
+    provider.scalarmult_base(scalar_bytes)
+  end
+
   # Raw Diffie-Hellman function that acts directly on bytestrings. An
   # alternative to the object-oriented API
   #
@@ -45,7 +60,12 @@ module X25519
   def diffie_hellman(scalar_bytes, montgomery_u_bytes)
     validate_key_bytes(scalar_bytes)
     validate_key_bytes(montgomery_u_bytes)
-    X25519.provider.scalarmult(scalar_bytes, montgomery_u_bytes)
+
+    # The point located at a Montgomery-u coordinate of zero always returns
+    # the point at zero regardless of which scalar it's multiplied with
+    raise InvalidKeyError, "degenerate public key" if montgomery_u_bytes == ("\0" * KEY_SIZE)
+
+    provider.scalarmult(scalar_bytes, montgomery_u_bytes)
   end
 
   # Ensure a serialized key meets the requirements
