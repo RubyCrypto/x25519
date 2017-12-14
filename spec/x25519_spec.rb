@@ -6,12 +6,22 @@ RSpec.describe X25519 do
   end
 
   describe ".diffie_hellman" do
+    let(:example_scalar) { unhex(X25519::TestVectors::VARIABLE_BASE.first.scalar) }
+
     it "raises ArgumentError if one of the inputs is the wrong length" do
       expect { described_class.diffie_hellman("foo", "bar") }.to raise_error(ArgumentError)
     end
 
     it "raises TypeError if one of the inputs is nil" do
       expect { described_class.diffie_hellman(nil, "foobar") }.to raise_error(TypeError)
+    end
+
+    it "raises InvalidKeyError if the point is degenerate" do
+      degenerate_key = "\0" * X25519::KEY_SIZE
+
+      expect do
+        described_class.diffie_hellman(example_scalar, degenerate_key)
+      end.to raise_error(X25519::InvalidKeyError)
     end
 
     context "RFC 7748 test vectors" do

@@ -11,6 +11,11 @@ module X25519
     # @param bytes [String] 32-byte compressed Montgomery-u coordinate
     def initialize(bytes)
       X25519.validate_key_bytes(bytes)
+
+      # The point located at a Montgomery-u coordinate of zero always returns
+      # the point at zero regardless of which scalar it's multiplied with
+      raise InvalidKeyError, "degenerate public key" if bytes == ("\0" * KEY_SIZE)
+
       @bytes = bytes
     end
 
