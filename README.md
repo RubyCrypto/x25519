@@ -5,7 +5,7 @@
 [build-image]: https://travis-ci.org/cryptosphere/x25519.svg?branch=master
 [build-link]: https://travis-ci.org/cryptosphere/x25519
 [docs-image]: https://img.shields.io/badge/yard-docs-blue.svg
-[docs-link]: http://www.rubydoc.info/gems/x25519
+[docs-link]: http://www.rubydoc.info/gems/x25519/1.0.3
 [license-image]: https://img.shields.io/badge/License-LGPL%20v3-blue.svg
 [license-link]: https://www.gnu.org/licenses/lgpl-3.0
 
