@@ -1,9 +1,11 @@
-# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![Yard Docs][docs-image]][docs-link] [![License: LGPL v3][license-image]][license-link]
+# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![Appveyor CI Status][appveyor-image]][appveyor-link] [![Yard Docs][docs-image]][docs-link] [![License: LGPL v3][license-image]][license-link]
 
 [gem-shield]: https://badge.fury.io/rb/x25519.svg
 [gem-link]: https://rubygems.org/gems/x25519
 [build-image]: https://travis-ci.org/cryptosphere/x25519.svg?branch=master
 [build-link]: https://travis-ci.org/cryptosphere/x25519
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/a245an53hsk05sn2?svg=true
+[appveyor-link]: https://ci.appveyor.com/project/tarcieri/x25519
 [docs-image]: https://img.shields.io/badge/yard-docs-blue.svg
 [docs-link]: http://www.rubydoc.info/gems/x25519/1.0.3
 [license-image]: https://img.shields.io/badge/License-LGPL%20v3-blue.svg
