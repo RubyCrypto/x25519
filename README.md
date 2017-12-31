@@ -2,8 +2,8 @@
 
 [gem-shield]: https://badge.fury.io/rb/x25519.svg
 [gem-link]: https://rubygems.org/gems/x25519
-[build-image]: https://travis-ci.org/cryptosphere/x25519.svg?branch=master
-[build-link]: https://travis-ci.org/cryptosphere/x25519
+[build-image]: https://travis-ci.org/crypto-rb/x25519.svg?branch=master
+[build-link]: https://travis-ci.org/crypto-rb/x25519
 [appveyor-image]: https://ci.appveyor.com/api/projects/status/a245an53hsk05sn2?svg=true
 [appveyor-link]: https://ci.appveyor.com/project/tarcieri/x25519
 [docs-image]: https://img.shields.io/badge/yard-docs-blue.svg
@@ -28,7 +28,7 @@ Curve25519.
 [RFC7748]: https://tools.ietf.org/html/rfc7748
 [How to (pre-)compute a ladder]: https://eprint.iacr.org/2017/264
 [rfc7748_precomputed]: https://github.com/armfazh/rfc7748_precomputed
-[ed25519 gem]: https://github.com/cryptosphere/ed25519
+[ed25519 gem]: https://github.com/crypto-rb/ed25519
 
 ## Requirements
 
@@ -212,7 +212,7 @@ Returns a `String` containing a 32-byte compressed Montgomery-u coordinate
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/cryptosphere/x25519.
+Bug reports and pull requests are welcome on GitHub at https://github.com/crypto-rb/x25519.
 This project is intended to be a safe, welcoming space for collaboration,
 and contributors areexpected to adhere to the [Contributor Covenant](http://contributor-covenant.org)
 code of conduct.
@@ -263,4 +263,4 @@ GNU Lesser General Public License v3.0 ([LICENSE](https://www.gnu.org/licenses/l
 Everyone interacting in the x25519.rb project’s codebases, issue trackers, chat
 rooms and mailing lists is expected to follow the [code of conduct].
 
-[code of conduct]: https://github.com/cryptosphere/x25519/blob/master/CODE_OF_CONDUCT.md
+[code of conduct]: https://github.com/crypto-rb/x25519/blob/master/CODE_OF_CONDUCT.md
