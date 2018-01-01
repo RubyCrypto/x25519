@@ -1,13 +1,6 @@
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.2
   DisplayCopNames: true
-
-#
-# Style
-#
-
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
 
 #
 # Metrics
@@ -33,3 +26,13 @@ Metrics/LineLength:
 
 Metrics/MethodLength:
   Max: 25
+
+#
+# Style
+#
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
