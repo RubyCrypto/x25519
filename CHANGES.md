@@ -1,3 +1,13 @@
+# [1.0.5] (2017-12-31)
+
+[1.0.5]: https://github.com/crypto-rb/x25519/compare/v1.0.4...v1.0.5
+
+* [#15](https://github.com/crypto-rb/x25519/pull/15)
+  RuboCop 0.52.1
+
+* [#14](https://github.com/crypto-rb/x25519/pull/14)
+  `ext/x25519_ref10`: Consolidate all field element code into fe.c
+
 # [1.0.4] (2017-12-31)
 
 [1.0.4]: https://github.com/crypto-rb/x25519/compare/v1.0.3...v1.0.4
