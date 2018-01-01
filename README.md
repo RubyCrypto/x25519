@@ -32,7 +32,9 @@ Curve25519.
 
 ## Requirements
 
-* MRI 2.2+
+**x25519.rb** is supported on and tested against the following platforms:
+
+* MRI 2.2, 2.3, 2.4, 2.5
 
 ## Installation
 
