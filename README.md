@@ -4,7 +4,7 @@
 [gem-link]: https://rubygems.org/gems/x25519
 [build-image]: https://travis-ci.org/crypto-rb/x25519.svg?branch=master
 [build-link]: https://travis-ci.org/crypto-rb/x25519
-[appveyor-image]: https://ci.appveyor.com/api/projects/status/a245an53hsk05sn2?svg=true
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/4s05bcae0mow85v1?svg=true
 [appveyor-link]: https://ci.appveyor.com/project/tarcieri/x25519
 [docs-image]: https://img.shields.io/badge/yard-docs-blue.svg
 [docs-link]: http://www.rubydoc.info/gems/x25519/1.0.5
