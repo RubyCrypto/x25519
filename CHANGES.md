@@ -1,3 +1,13 @@
+# [1.0.4] (2017-12-31)
+
+[1.0.4]: https://github.com/crypto-rb/x25519/compare/v1.0.3...v1.0.4
+
+* [#13](https://github.com/crypto-rb/x25519/pull/13)
+  Test against Ruby 2.5.0
+
+* [#12](https://github.com/crypto-rb/x25519/pull/12)
+  Move project to the crypto-rb GitHub organization
+
 # [1.0.3] (2017-12-13)
 
 [1.0.3]: https://github.com/crypto-rb/x25519/compare/v1.0.2...v1.0.3
