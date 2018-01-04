@@ -1,4 +1,4 @@
-# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![Appveyor CI Status][appveyor-image]][appveyor-link] [![Yard Docs][docs-image]][docs-link] [![License: LGPL v3][license-image]][license-link]
+# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![Appveyor CI Status][appveyor-image]][appveyor-link] [![Yard Docs][docs-image]][docs-link] [![License: LGPL v3][license-image]][license-link] [![Gitter Chat][gitter-image]][gitter-link]
 
 [gem-shield]: https://badge.fury.io/rb/x25519.svg
 [gem-link]: https://rubygems.org/gems/x25519
@@ -10,6 +10,8 @@
 [docs-link]: http://www.rubydoc.info/gems/x25519/1.0.5
 [license-image]: https://img.shields.io/badge/License-LGPL%20v3-blue.svg
 [license-link]: https://www.gnu.org/licenses/lgpl-3.0
+[gitter-image]: https://badges.gitter.im/badge.svg
+[gitter-link]: https://gitter.im/crypto-rb/Lobby
 
 An efficient public key cryptography library for Ruby providing key
 exchange/agreement.
