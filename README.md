@@ -32,6 +32,21 @@ Curve25519.
 [rfc7748_precomputed]: https://github.com/armfazh/rfc7748_precomputed
 [ed25519 gem]: https://github.com/crypto-rb/ed25519
 
+### Is it any good?
+
+[Yes.](http://news.ycombinator.com/item?id=3067434)
+
+## Help and Discussion
+
+Have questions? Want to suggest a feature or change? Join a discussion group:
+
+* [Crypto.rb Gitter]: web-based chat about Ruby crypto projects including **ed25519**.
+* [Crypto.rb Google Group]: join via web or email ([crypto-rb+subscribe@googlegroups.com])
+
+[Crypto.rb Gitter]: https://gitter.im/crypto-rb/Lobby
+[Crypto.rb Google Group]: https://groups.google.com/forum/#!forum/crypto-rb
+[crypto-rb+subscribe@googlegroups.com]: mailto:crypto-rb+subscribe@googlegroups.com?subject=subscribe
+
 ## Requirements
 
 **x25519.rb** is supported on and tested against the following platforms:
