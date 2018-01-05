@@ -40,7 +40,7 @@ Curve25519.
 
 Have questions? Want to suggest a feature or change? Join a discussion group:
 
-* [Crypto.rb Gitter]: web-based chat about Ruby crypto projects including **ed25519**.
+* [Crypto.rb Gitter]: web-based chat about Ruby crypto projects including **x25519**.
 * [Crypto.rb Google Group]: join via web or email ([crypto-rb+subscribe@googlegroups.com])
 
 [Crypto.rb Gitter]: https://gitter.im/crypto-rb/Lobby
