@@ -1,3 +1,9 @@
+# [1.0.6] (2018-01-04)
+
+[1.0.6]: https://github.com/crypto-rb/x25519/compare/v1.0.5...v1.0.6
+
+* Use correct (LGPLv3) license in gemspec
+
 # [1.0.5] (2017-12-31)
 
 [1.0.5]: https://github.com/crypto-rb/x25519/compare/v1.0.4...v1.0.5
