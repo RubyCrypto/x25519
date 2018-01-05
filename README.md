@@ -7,7 +7,7 @@
 [appveyor-image]: https://ci.appveyor.com/api/projects/status/4s05bcae0mow85v1?svg=true
 [appveyor-link]: https://ci.appveyor.com/project/tarcieri/x25519
 [docs-image]: https://img.shields.io/badge/yard-docs-blue.svg
-[docs-link]: http://www.rubydoc.info/gems/x25519/1.0.5
+[docs-link]: http://www.rubydoc.info/gems/x25519/1.0.6
 [license-image]: https://img.shields.io/badge/License-LGPL%20v3-blue.svg
 [license-link]: https://www.gnu.org/licenses/lgpl-3.0
 [gitter-image]: https://badges.gitter.im/badge.svg
