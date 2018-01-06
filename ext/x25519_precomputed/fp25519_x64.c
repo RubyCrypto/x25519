@@ -23,7 +23,7 @@ int compare_bytes(uint8_t* A, uint8_t* B,unsigned int num_bytes)
 	uint8_t ret=0;
 	for(i=0;i<num_bytes;i++)
 	{
-		ret += A[i]^B[i];
+		ret |= A[i]^B[i];
 	}
 	return ret;
 }
