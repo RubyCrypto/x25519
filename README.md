@@ -48,8 +48,8 @@ like to use X25519 for public-key encryption. Otherwise, the X25519 algorithm
 is not directly useful for encryption without a higher-level encryption protocol
 built on top of it.
 
-[RbNaCl::Box](https://github.com/crypto-rb/rbnacl/wiki/Public-Key-Encryption)
-[XSTREAM](https://github.com/miscreant/xstream)
+[RbNaCl::Box]: https://github.com/crypto-rb/rbnacl/wiki/Public-Key-Encryption
+[XSTREAM]: https://github.com/miscreant/xstream
 
 ## Help and Discussion
 
