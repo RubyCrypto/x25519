@@ -36,6 +36,21 @@ Curve25519.
 
 [Yes.](http://news.ycombinator.com/item?id=3067434)
 
+### What is it useful for?
+
+X25519 is a key exchange/agreement algorithm generally used as a low-level
+building block in cryptographic protocols.
+
+### Can I use X25519 to encrypt things?
+
+Please use [RbNaCl::Box] or the (experimental) [XSTREAM] library if you would
+like to use X25519 for public-key encryption. Otherwise, the X25519 algorithm
+is not directly useful for encryption without a higher-level encryption protocol
+built on top of it.
+
+[RbNaCl::Box](https://github.com/crypto-rb/rbnacl/wiki/Public-Key-Encryption)
+[XSTREAM](https://github.com/miscreant/xstream)
+
 ## Help and Discussion
 
 Have questions? Want to suggest a feature or change? Join a discussion group:
