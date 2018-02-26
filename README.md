@@ -8,8 +8,8 @@
 [appveyor-link]: https://ci.appveyor.com/project/tarcieri/x25519
 [docs-image]: https://img.shields.io/badge/yard-docs-blue.svg
 [docs-link]: http://www.rubydoc.info/gems/x25519/1.0.6
-[license-image]: https://img.shields.io/badge/License-LGPL%20v3-blue.svg
-[license-link]: https://www.gnu.org/licenses/lgpl-3.0
+[license-image]: https://img.shields.io/badge/License-LGPL%20v2.1-blue.svg
+[license-link]: https://www.gnu.org/licenses/lgpl-2.1
 [gitter-image]: https://badges.gitter.im/badge.svg
 [gitter-link]: https://gitter.im/crypto-rb/Lobby
 
@@ -290,7 +290,7 @@ The optimized [rfc7748_precomputed] implementation was designed by:
 Copyright (c) 2017-2018 Armando Faz, Tony Arcieri
 
 This gem is available as open source under the terms of the
-GNU Lesser General Public License v3.0 ([LICENSE](https://www.gnu.org/licenses/lgpl-3.0.txt))
+GNU Lesser General Public License v2.1 ([LICENSE](https://www.gnu.org/licenses/lgpl-2.1.txt))
 
 ## Code of Conduct
 
