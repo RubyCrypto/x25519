@@ -45,9 +45,6 @@ void red_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a);
 
 /* Prime Field Util */
 void random_EltFp25519_1w_x64(uint64_t *A);
-int compare_EltFp25519_1w_x64(uint64_t *A, uint64_t *B);
-void random_EltFp25519_2w_x64(uint64_t *A);
-int compare_EltFp25519_2w(uint64_t *A, uint64_t *B);
 
 /* Prime Field Arithmetic */
 void add_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a, uint64_t *const b);
