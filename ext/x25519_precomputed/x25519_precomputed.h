@@ -20,11 +20,16 @@
 
 #include <stdint.h>
 
+#ifndef ALIGN_BYTES
 #define ALIGN_BYTES 32
+#endif
+
+#ifndef ALIGN
 #ifdef __INTEL_COMPILER
 #define ALIGN __declspec(align(ALIGN_BYTES))
 #else
-#define ALIGN __attribute__ ((aligned (ALIGN_BYTES)))
+#define ALIGN __attribute__((aligned(ALIGN_BYTES)))
+#endif
 #endif
 
 #define X25519_KEYSIZE_BYTES 32
