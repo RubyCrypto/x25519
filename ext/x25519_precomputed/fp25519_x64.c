@@ -17,22 +17,6 @@
 */
 #include "fp25519_x64.h"
 
-int compare_bytes(uint8_t* A, uint8_t* B,unsigned int num_bytes)
-{
-	unsigned int i=0;
-	uint8_t ret=0;
-	for(i=0;i<num_bytes;i++)
-	{
-		ret |= A[i]^B[i];
-	}
-	return ret;
-}
-
-int compare_EltFp25519_1w_x64(uint64_t *A, uint64_t *B)
-{
-	return compare_bytes((uint8_t*)A,(uint8_t*)B,SIZE_ELEMENT_BYTES);
-}
-
 /**
  *
  * @param c Two 512-bit products: c[0:7]=a[0:3]*b[0:3] and c[8:15]=a[4:7]*b[4:7]
