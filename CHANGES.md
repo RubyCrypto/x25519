@@ -1,3 +1,10 @@
+# [1.0.7] (2018-02-26)
+
+[1.0.7]: https://github.com/crypto-rb/x25519/compare/v1.0.6...v1.0.7
+
+* [#19](https://github.com/crypto-rb/x25519/pull/19)
+  Incorporate upstream carry propagation bugfix and LICENSE changes
+
 # [1.0.6] (2018-01-04)
 
 [1.0.6]: https://github.com/crypto-rb/x25519/compare/v1.0.5...v1.0.6
