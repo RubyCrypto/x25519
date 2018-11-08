@@ -1,23 +1,39 @@
 /**
- * Copyright (c) 2017 Armando Faz <armfazh@ic.unicamp.br>. All Rights Reserved.
+ * Copyright (c) 2017, Armando Faz <armfazh@ic.unicamp.br>. All rights reserved.
  * Institute of Computing.
  * University of Campinas, Brazil.
  *
  * Copyright (C) 2018 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
  * Copyright (C) 2018 Samuel Neves <sneves@dei.uc.pt>. All Rights Reserved.
- * 
- * This program is free software: you can redistribute it and/or modify  
- * it under the terms of the GNU Lesser General Public License as   
- * published by the Free Software Foundation, version 2 or greater.
  *
- * This program is distributed in the hope that it will be useful, but 
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
  *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above
+ *    copyright notice, this list of conditions and the following
+ *    disclaimer in the documentation and/or other materials provided
+ *    with the distribution.
+ *  * Neither the name of University of Campinas nor the names of its
+ *    contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 #include "fp25519_x64.h"
 
 /**
@@ -32,19 +48,19 @@ void mul2_256x256_integer_x64(uint64_t *const c, uint64_t *const a,
 #ifdef __ADX__
   __asm__ __volatile__(
     "xorl %%r14d, %%r14d ;"
-    "movq   (%1), %%rdx; " /* A[0] */                                                             
+    "movq   (%1), %%rdx; " /* A[0] */
     "mulx   (%2),  %%r8, %%r12; " /* A[0]*B[0] */  "xorl %%r10d, %%r10d ;"  "movq %%r8, (%0) ;"
-    "mulx  8(%2), %%r10, %%rax; " /* A[0]*B[1] */  "adox %%r10, %%r12 ;"                        
-    "mulx 16(%2),  %%r8, %%rbx; " /* A[0]*B[2] */  "adox  %%r8, %%rax ;"                        
-    "mulx 24(%2), %%r10, %%rcx; " /* A[0]*B[3] */  "adox %%r10, %%rbx ;"                        
-    /*******************************************/  "adox %%r14, %%rcx ;"                        
+    "mulx  8(%2), %%r10, %%rax; " /* A[0]*B[1] */  "adox %%r10, %%r12 ;"
+    "mulx 16(%2),  %%r8, %%rbx; " /* A[0]*B[2] */  "adox  %%r8, %%rax ;"
+    "mulx 24(%2), %%r10, %%rcx; " /* A[0]*B[3] */  "adox %%r10, %%rbx ;"
+    /*******************************************/  "adox %%r14, %%rcx ;"
 
-    "movq  8(%1), %%rdx; " /* A[1] */    
-    "mulx   (%2),  %%r8,  %%r9; " /* A[1]*B[0] */  "adox %%r12,  %%r8 ;"  "movq  %%r8, 8(%0) ;" 
-    "mulx  8(%2), %%r10, %%r11; " /* A[1]*B[1] */  "adox %%r10,  %%r9 ;"  "adcx  %%r9, %%rax ;" 
-    "mulx 16(%2),  %%r8, %%r13; " /* A[1]*B[2] */  "adox  %%r8, %%r11 ;"  "adcx %%r11, %%rbx ;" 
-    "mulx 24(%2), %%r10, %%r12; " /* A[1]*B[3] */  "adox %%r10, %%r13 ;"  "adcx %%r13, %%rcx ;" 
-    /*******************************************/  "adox %%r14, %%r12 ;"  "adcx %%r14, %%r12 ;" 
+    "movq  8(%1), %%rdx; " /* A[1] */
+    "mulx   (%2),  %%r8,  %%r9; " /* A[1]*B[0] */  "adox %%r12,  %%r8 ;"  "movq  %%r8, 8(%0) ;"
+    "mulx  8(%2), %%r10, %%r11; " /* A[1]*B[1] */  "adox %%r10,  %%r9 ;"  "adcx  %%r9, %%rax ;"
+    "mulx 16(%2),  %%r8, %%r13; " /* A[1]*B[2] */  "adox  %%r8, %%r11 ;"  "adcx %%r11, %%rbx ;"
+    "mulx 24(%2), %%r10, %%r12; " /* A[1]*B[3] */  "adox %%r10, %%r13 ;"  "adcx %%r13, %%rcx ;"
+    /*******************************************/  "adox %%r14, %%r12 ;"  "adcx %%r14, %%r12 ;"
 
     "movq 16(%1), %%rdx; " /* A[2] */              "xorl %%r10d, %%r10d ;"
     "mulx   (%2),  %%r8,  %%r9; " /* A[2]*B[0] */  "adox %%rax,  %%r8 ;"  "movq %%r8, 16(%0) ;"
@@ -59,20 +75,20 @@ void mul2_256x256_integer_x64(uint64_t *const c, uint64_t *const a,
     "mulx 16(%2),  %%r8, %%r13; " /* A[3]*B[2] */  "adox  %%r8, %%r11 ;"  "adcx %%r11, %%r12 ;"  "movq %%r12, 40(%0) ;"
     "mulx 24(%2), %%r10, %%rbx; " /* A[3]*B[3] */  "adox %%r10, %%r13 ;"  "adcx %%r13, %%rax ;"  "movq %%rax, 48(%0) ;"
     /*******************************************/  "adox %%r14, %%rbx ;"  "adcx %%r14, %%rbx ;"  "movq %%rbx, 56(%0) ;"
-    
-    "movq 32(%1), %%rdx; " /* C[0] */                                                             
+
+    "movq 32(%1), %%rdx; " /* C[0] */
     "mulx 32(%2),  %%r8, %%r12; " /* C[0]*D[0] */  "xorl %%r10d, %%r10d ;" "movq %%r8, 64(%0);"
-    "mulx 40(%2), %%r10, %%rax; " /* C[0]*D[1] */  "adox %%r10, %%r12 ;"                        
-    "mulx 48(%2),  %%r8, %%rbx; " /* C[0]*D[2] */  "adox  %%r8, %%rax ;"                        
-    "mulx 56(%2), %%r10, %%rcx; " /* C[0]*D[3] */  "adox %%r10, %%rbx ;"                        
-    /*******************************************/  "adox %%r14, %%rcx ;"                        
+    "mulx 40(%2), %%r10, %%rax; " /* C[0]*D[1] */  "adox %%r10, %%r12 ;"
+    "mulx 48(%2),  %%r8, %%rbx; " /* C[0]*D[2] */  "adox  %%r8, %%rax ;"
+    "mulx 56(%2), %%r10, %%rcx; " /* C[0]*D[3] */  "adox %%r10, %%rbx ;"
+    /*******************************************/  "adox %%r14, %%rcx ;"
 
     "movq 40(%1), %%rdx; " /* C[1] */              "xorl %%r10d, %%r10d ;"
-    "mulx 32(%2),  %%r8,  %%r9; " /* C[1]*D[0] */  "adox %%r12,  %%r8 ;"  "movq  %%r8, 72(%0);" 
-    "mulx 40(%2), %%r10, %%r11; " /* C[1]*D[1] */  "adox %%r10,  %%r9 ;"  "adcx  %%r9, %%rax ;" 
-    "mulx 48(%2),  %%r8, %%r13; " /* C[1]*D[2] */  "adox  %%r8, %%r11 ;"  "adcx %%r11, %%rbx ;" 
-    "mulx 56(%2), %%r10, %%r12; " /* C[1]*D[3] */  "adox %%r10, %%r13 ;"  "adcx %%r13, %%rcx ;" 
-    /*******************************************/  "adox %%r14, %%r12 ;"  "adcx %%r14, %%r12 ;" 
+    "mulx 32(%2),  %%r8,  %%r9; " /* C[1]*D[0] */  "adox %%r12,  %%r8 ;"  "movq  %%r8, 72(%0);"
+    "mulx 40(%2), %%r10, %%r11; " /* C[1]*D[1] */  "adox %%r10,  %%r9 ;"  "adcx  %%r9, %%rax ;"
+    "mulx 48(%2),  %%r8, %%r13; " /* C[1]*D[2] */  "adox  %%r8, %%r11 ;"  "adcx %%r11, %%rbx ;"
+    "mulx 56(%2), %%r10, %%r12; " /* C[1]*D[3] */  "adox %%r10, %%r13 ;"  "adcx %%r13, %%rcx ;"
+    /*******************************************/  "adox %%r14, %%r12 ;"  "adcx %%r14, %%r12 ;"
 
     "movq 48(%1), %%rdx; " /* C[2] */              "xorl %%r10d, %%r10d ;"
     "mulx 32(%2),  %%r8,  %%r9; " /* C[2]*D[0] */  "adox %%rax,  %%r8 ;"  "movq  %%r8, 80(%0);"
@@ -82,7 +98,7 @@ void mul2_256x256_integer_x64(uint64_t *const c, uint64_t *const a,
     /*******************************************/  "adox %%r14, %%rax ;"  "adcx %%r14, %%rax ;"
 
     "movq 56(%1), %%rdx; " /* C[3] */              "xorl %%r10d, %%r10d ;"
-    "mulx 32(%2),  %%r8,  %%r9; " /* C[3]*D[0] */  "adox %%rbx,  %%r8 ;"  "movq  %%r8, 88(%0);"               
+    "mulx 32(%2),  %%r8,  %%r9; " /* C[3]*D[0] */  "adox %%rbx,  %%r8 ;"  "movq  %%r8, 88(%0);"
     "mulx 40(%2), %%r10, %%r11; " /* C[3]*D[1] */  "adox %%r10,  %%r9 ;"  "adcx  %%r9, %%rcx ;"  "movq %%rcx,  96(%0) ;"
     "mulx 48(%2),  %%r8, %%r13; " /* C[3]*D[2] */  "adox  %%r8, %%r11 ;"  "adcx %%r11, %%r12 ;"  "movq %%r12, 104(%0) ;"
     "mulx 56(%2), %%r10, %%rbx; " /* C[3]*D[3] */  "adox %%r10, %%r13 ;"  "adcx %%r13, %%rax ;"  "movq %%rax, 112(%0) ;"
@@ -233,8 +249,8 @@ void sqr2_256x256_integer_x64(uint64_t *const c, uint64_t *const a) {
     "movq 24(%1), %%rdx ;"  "mulx %%rdx, %%rax, %%rcx ;" /* A[3]^2 */
     "adcq %%rax, %%r13 ;"   "movq %%r13, 48(%0) ;"
     "adcq %%rcx, %%r14 ;"   "movq %%r14, 56(%0) ;"
-    
-    
+
+
     "movq 32(%1), %%rdx        ;" /* B[0]      */
     "mulx 40(%1),  %%r8, %%r14 ;" /* B[1]*B[0] */  "xorl %%r15d, %%r15d;"
     "mulx 48(%1),  %%r9, %%r10 ;" /* B[2]*B[0] */  "adcx %%r14,  %%r9 ;"
@@ -401,8 +417,8 @@ void red_EltFp25519_2w_x64(uint64_t *const c, uint64_t *const a) {
     "adcx %%rcx,  %%r9 ;"  "movq  %%r9,  8(%0) ;"
     "adcx %%rbx, %%r10 ;"  "movq %%r10, 16(%0) ;"
     "adcx %%rbx, %%r11 ;"  "movq %%r11, 24(%0) ;"
-    "mov     $0, %%ecx ;"	  
-    "cmovc %%edx, %%ecx ;"	  
+    "mov     $0, %%ecx ;"
+    "cmovc %%edx, %%ecx ;"
     "addq %%rcx,  %%r8 ;"  "movq  %%r8,   (%0) ;"
 
     "mulx  96(%1),  %%r8, %%r10; " /* c*C[4] */  "xorl %%ebx, %%ebx ;"  "adox 64(%1),  %%r8 ;"
@@ -416,8 +432,8 @@ void red_EltFp25519_2w_x64(uint64_t *const c, uint64_t *const a) {
     "adcx %%rcx,  %%r9 ;"  "movq  %%r9, 40(%0) ;"
     "adcx %%rbx, %%r10 ;"  "movq %%r10, 48(%0) ;"
     "adcx %%rbx, %%r11 ;"  "movq %%r11, 56(%0) ;"
-    "mov     $0, %%ecx ;"	  
-    "cmovc %%edx, %%ecx ;"	  
+    "mov     $0, %%ecx ;"
+    "cmovc %%edx, %%ecx ;"
     "addq %%rcx,  %%r8 ;"  "movq  %%r8, 32(%0) ;"
   :
   : "r" (c), "r" (a)
@@ -441,8 +457,8 @@ void red_EltFp25519_2w_x64(uint64_t *const c, uint64_t *const a) {
     "adcq %%rcx,  %%r9 ;"  "movq  %%r9,  8(%0) ;"
     "adcq    $0, %%r10 ;"  "movq %%r10, 16(%0) ;"
     "adcq    $0, %%r11 ;"  "movq %%r11, 24(%0) ;"
-    "mov     $0, %%ecx ;"	  
-    "cmovc %%edx, %%ecx ;"	  
+    "mov     $0, %%ecx ;"
+    "cmovc %%edx, %%ecx ;"
     "addq %%rcx,  %%r8 ;"  "movq  %%r8,   (%0) ;"
 
     "mulx  96(%1),  %%r8, %%r10 ;" /* c*C[4] */
@@ -460,8 +476,8 @@ void red_EltFp25519_2w_x64(uint64_t *const c, uint64_t *const a) {
     "adcq %%rcx,  %%r9 ;"  "movq  %%r9, 40(%0) ;"
     "adcq    $0, %%r10 ;"  "movq %%r10, 48(%0) ;"
     "adcq    $0, %%r11 ;"  "movq %%r11, 56(%0) ;"
-    "mov     $0, %%ecx ;"	  
-    "cmovc %%edx, %%ecx ;"	  
+    "mov     $0, %%ecx ;"
+    "cmovc %%edx, %%ecx ;"
     "addq %%rcx,  %%r8 ;"  "movq  %%r8, 32(%0) ;"
   :
   : "r" (c), "r" (a)
@@ -555,7 +571,7 @@ void mul_256x256_integer_x64(uint64_t *const c, uint64_t *const a, uint64_t *con
     "adcq    $0, %%rbx ;"  "movq %%rbx, 56(%0) ;"
   :
   : "r" (c), "r" (a), "r" (b)
-  : "memory", "cc", "%rax", "%rbx", "%rcx", "%rdx", 
+  : "memory", "cc", "%rax", "%rbx", "%rcx", "%rdx",
     "%r8", "%r9", "%r10", "%r11", "%r12", "%r13"
   );
 #endif
@@ -684,8 +700,8 @@ void red_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a) {
     "adcx %%rcx,  %%r9 ;"  "movq  %%r9,  8(%0) ;"
     "adcx %%rbx, %%r10 ;"  "movq %%r10, 16(%0) ;"
     "adcx %%rbx, %%r11 ;"  "movq %%r11, 24(%0) ;"
-    "mov     $0, %%ecx ;"	  
-    "cmovc %%edx, %%ecx ;"	  
+    "mov     $0, %%ecx ;"
+    "cmovc %%edx, %%ecx ;"
     "addq %%rcx,  %%r8 ;"  "movq  %%r8,   (%0) ;"
   :
   : "r" (c), "r" (a)
@@ -709,8 +725,8 @@ void red_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a) {
     "adcq %%rcx,  %%r9 ;"  "movq  %%r9,  8(%0) ;"
     "adcq    $0, %%r10 ;"  "movq %%r10, 16(%0) ;"
     "adcq    $0, %%r11 ;"  "movq %%r11, 24(%0) ;"
-    "mov     $0, %%ecx ;"	  
-    "cmovc %%edx, %%ecx ;"	  
+    "mov     $0, %%ecx ;"
+    "cmovc %%edx, %%ecx ;"
     "addq %%rcx,  %%r8 ;"  "movq  %%r8,   (%0) ;"
   :
   : "r" (c), "r" (a)
@@ -727,20 +743,20 @@ void red_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a) {
 inline void add_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a, uint64_t *const b) {
 #ifdef __ADX__
   __asm__ __volatile__(
-    "mov     $38, %%eax ;"	  
-    "xorl  %%ecx, %%ecx ;"	  
+    "mov     $38, %%eax ;"
+    "xorl  %%ecx, %%ecx ;"
     "movq   (%2),  %%r8 ;"  "adcx   (%1),  %%r8 ;"
     "movq  8(%2),  %%r9 ;"  "adcx  8(%1),  %%r9 ;"
     "movq 16(%2), %%r10 ;"  "adcx 16(%1), %%r10 ;"
     "movq 24(%2), %%r11 ;"  "adcx 24(%1), %%r11 ;"
-    "cmovc %%eax, %%ecx ;"	  
+    "cmovc %%eax, %%ecx ;"
     "xorl %%eax, %%eax  ;"
     "adcx %%rcx,  %%r8  ;"
     "adcx %%rax,  %%r9  ;"  "movq  %%r9,  8(%0) ;"
     "adcx %%rax, %%r10  ;"  "movq %%r10, 16(%0) ;"
     "adcx %%rax, %%r11  ;"  "movq %%r11, 24(%0) ;"
-    "mov     $38, %%ecx ;"	  
-    "cmovc %%ecx, %%eax ;"	  
+    "mov     $38, %%ecx ;"
+    "cmovc %%ecx, %%eax ;"
     "addq %%rax,  %%r8  ;"  "movq  %%r8,   (%0) ;"
   :
   : "r" (c), "r" (a), "r" (b)
@@ -748,19 +764,19 @@ inline void add_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a, uint64_t
   );
 #else
   __asm__ __volatile__(
-    "mov     $38, %%eax ;"	  
+    "mov     $38, %%eax ;"
     "movq   (%2),  %%r8 ;"  "addq   (%1),  %%r8 ;"
     "movq  8(%2),  %%r9 ;"  "adcq  8(%1),  %%r9 ;"
     "movq 16(%2), %%r10 ;"  "adcq 16(%1), %%r10 ;"
     "movq 24(%2), %%r11 ;"  "adcq 24(%1), %%r11 ;"
-    "mov      $0, %%ecx ;"	  
-    "cmovc %%eax, %%ecx ;"	  
+    "mov      $0, %%ecx ;"
+    "cmovc %%eax, %%ecx ;"
     "addq %%rcx,  %%r8  ;"
     "adcq    $0,  %%r9  ;"  "movq  %%r9,  8(%0) ;"
     "adcq    $0, %%r10  ;"  "movq %%r10, 16(%0) ;"
     "adcq    $0, %%r11  ;"  "movq %%r11, 24(%0) ;"
-    "mov     $0, %%ecx  ;"	  
-    "cmovc %%eax, %%ecx ;"	  
+    "mov     $0, %%ecx  ;"
+    "cmovc %%eax, %%ecx ;"
     "addq %%rcx,  %%r8  ;"  "movq  %%r8,   (%0) ;"
   :
   : "r" (c), "r" (a), "r" (b)
@@ -771,19 +787,19 @@ inline void add_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a, uint64_t
 
 inline void sub_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a, uint64_t *const b) {
   __asm__ __volatile__(
-    "mov     $38, %%eax ;"	  
+    "mov     $38, %%eax ;"
     "movq   (%1),  %%r8 ;"  "subq   (%2),  %%r8 ;"
     "movq  8(%1),  %%r9 ;"  "sbbq  8(%2),  %%r9 ;"
     "movq 16(%1), %%r10 ;"  "sbbq 16(%2), %%r10 ;"
     "movq 24(%1), %%r11 ;"  "sbbq 24(%2), %%r11 ;"
-    "mov      $0, %%ecx ;"	  
-    "cmovc %%eax, %%ecx ;"	  
+    "mov      $0, %%ecx ;"
+    "cmovc %%eax, %%ecx ;"
     "subq %%rcx,  %%r8  ;"
     "sbbq    $0,  %%r9  ;"  "movq  %%r9,  8(%0) ;"
     "sbbq    $0, %%r10  ;"  "movq %%r10, 16(%0) ;"
     "sbbq    $0, %%r11  ;"  "movq %%r11, 24(%0) ;"
-    "mov     $0, %%ecx  ;"	  
-    "cmovc %%eax, %%ecx ;"	  
+    "mov     $0, %%ecx  ;"
+    "cmovc %%eax, %%ecx ;"
     "subq %%rcx,  %%r8  ;"  "movq  %%r8,   (%0) ;"
   :
   : "r" (c), "r" (a), "r" (b)
@@ -810,8 +826,8 @@ inline void mul_a24_EltFp25519_1w_x64(uint64_t *const c, uint64_t *const a) {
     "adcq %%rcx,  %%r9 ;"  "movq  %%r9,  8(%0) ;"
     "adcq    $0, %%r10 ;"  "movq %%r10, 16(%0) ;"
     "adcq    $0, %%r11 ;"  "movq %%r11, 24(%0) ;"
-    "mov     $0, %%ecx ;"	  
-    "cmovc %%edx, %%ecx ;"	  
+    "mov     $0, %%ecx ;"
+    "cmovc %%edx, %%ecx ;"
     "addq %%rcx,  %%r8 ;"  "movq  %%r8,   (%0) ;"
   :
   : "r" (c), "r" (a), "r" (a24)

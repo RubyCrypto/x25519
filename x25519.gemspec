@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
     Diffie-Hellman function as described in RFC 7748.
   DESCRIPTION
   spec.homepage      = "https://github.com/crypto-rb/x25519"
-  spec.license       = "LGPL-2.1-or-later"
+  spec.license       = "BSD-3-Clause" # https://spdx.org/licenses/BSD-3-Clause.html
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }

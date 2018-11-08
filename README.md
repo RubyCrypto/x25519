@@ -1,4 +1,4 @@
-# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![Appveyor CI Status][appveyor-image]][appveyor-link] [![Yard Docs][docs-image]][docs-link] [![License: LGPL v3][license-image]][license-link] [![Gitter Chat][gitter-image]][gitter-link]
+# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![Appveyor CI Status][appveyor-image]][appveyor-link] [![Yard Docs][docs-image]][docs-link] [![License: BSD 3-Clause][license-image]][license-link] [![Gitter Chat][gitter-image]][gitter-link]
 
 [gem-shield]: https://badge.fury.io/rb/x25519.svg
 [gem-link]: https://rubygems.org/gems/x25519
@@ -8,8 +8,8 @@
 [appveyor-link]: https://ci.appveyor.com/project/tarcieri/x25519
 [docs-image]: https://img.shields.io/badge/yard-docs-blue.svg
 [docs-link]: http://www.rubydoc.info/gems/x25519/1.0.6
-[license-image]: https://img.shields.io/badge/License-LGPL%20v2.1-blue.svg
-[license-link]: https://www.gnu.org/licenses/lgpl-2.1
+[license-image]: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
+[license-link]: https://spdx.org/licenses/BSD-3-Clause.html
 [gitter-image]: https://badges.gitter.im/badge.svg
 [gitter-link]: https://gitter.im/crypto-rb/Lobby
 
@@ -285,12 +285,12 @@ The optimized [rfc7748_precomputed] implementation was designed by:
 * Armando Faz-Hernández, University of Campinas, Brazil.
 * Francisco Rodríguez-Henríquez, Computer Science Department, Cinvestav-IPN, Mexico.
 
-## Copyright and License
+## License
 
 Copyright (c) 2017-2018 Armando Faz, Tony Arcieri
 
 This gem is available as open source under the terms of the
-GNU Lesser General Public License v2.1 ([LICENSE](https://www.gnu.org/licenses/lgpl-2.1.txt))
+BSD-3 Clause License ([LICENSE](./LICENSE))
 
 ## Code of Conduct
 
