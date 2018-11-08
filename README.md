@@ -248,7 +248,7 @@ Returns a `String` containing a 32-byte compressed Montgomery-u coordinate
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/crypto-rb/x25519.
 This project is intended to be a safe, welcoming space for collaboration,
-and contributors areexpected to adhere to the [Contributor Covenant](http://contributor-covenant.org)
+and contributors are expected to adhere to the [Contributor Covenant](https://contributor-covenant.org)
 code of conduct.
 
 ## Implementation Details
@@ -259,7 +259,8 @@ based on available CPU features.
 
 ### [rfc7748_precomputed]: optimized assembly implementation
 
-* Prime field arithmetic is optimized for the 4th and 6th generation of Intel Core processors (Haswell and Skylake micro-architectures).
+* Prime field arithmetic is optimized for the 4th and 6th generation of Intel Core processors
+  (Haswell and Skylake micro-architectures).
 * Efficient integer multiplication using MULX instruction.
 * Integer additions accelerated with ADCX/ADOX instructions.
 * Key generation uses a read-only table of 8 KB for X25519.
