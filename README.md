@@ -45,17 +45,6 @@ useful for encryption without a higher-level encryption protocol built on top of
 
 [RbNaCl::Box]: https://github.com/RubyCrypto/rbnacl/wiki/Public-Key-Encryption
 
-## Help and Discussion
-
-Have questions? Want to suggest a feature or change? Join a discussion group:
-
-* [Crypto.rb Gitter]: web-based chat about Ruby crypto projects including **x25519**.
-* [Crypto.rb Google Group]: join via web or email ([RubyCrypto+subscribe@googlegroups.com])
-
-[Crypto.rb Gitter]: https://gitter.im/RubyCrypto/Lobby
-[Crypto.rb Google Group]: https://groups.google.com/forum/#!forum/RubyCrypto
-[RubyCrypto+subscribe@googlegroups.com]: mailto:RubyCrypto+subscribe@googlegroups.com?subject=subscribe
-
 ## Requirements
 
 **x25519.rb** is supported on and tested against the following platforms:
