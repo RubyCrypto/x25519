@@ -294,4 +294,4 @@ BSD-3 Clause License ([LICENSE](./LICENSE))
 Everyone interacting in the x25519.rb project’s codebases, issue trackers, chat
 rooms and mailing lists is expected to follow the [code of conduct].
 
-[code of conduct]: https://github.com/RubyCrypto/x25519/blob/master/CODE_OF_CONDUCT.md
+[code of conduct]: https://github.com/RubyCrypto/x25519/blob/main/CODE_OF_CONDUCT.md
