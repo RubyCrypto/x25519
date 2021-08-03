@@ -1,17 +1,13 @@
-# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Build Status][build-image]][build-link] [![Appveyor CI Status][appveyor-image]][appveyor-link] [![Yard Docs][docs-image]][docs-link] [![License: BSD 3-Clause][license-image]][license-link] [![Gitter Chat][gitter-image]][gitter-link]
+# x25519.rb [![Latest Version][gem-shield]][gem-link] [![Yard Docs][docs-image]][docs-link] [![License: BSD 3-Clause][license-image]][license-link] [![Build Status][build-image]][build-link]
 
-[gem-shield]: https://badge.fury.io/rb/x25519.svg
+[gem-shield]: https://img.shields.io/gem/v/x25519?logo=ruby
 [gem-link]: https://rubygems.org/gems/x25519
-[build-image]: https://travis-ci.org/crypto-rb/x25519.svg?branch=master
-[build-link]: https://travis-ci.org/crypto-rb/x25519
-[appveyor-image]: https://ci.appveyor.com/api/projects/status/4s05bcae0mow85v1?svg=true
-[appveyor-link]: https://ci.appveyor.com/project/tarcieri/x25519
 [docs-image]: https://img.shields.io/badge/yard-docs-blue.svg
 [docs-link]: http://www.rubydoc.info/gems/x25519/1.0.6
 [license-image]: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
 [license-link]: https://spdx.org/licenses/BSD-3-Clause.html
-[gitter-image]: https://badges.gitter.im/badge.svg
-[gitter-link]: https://gitter.im/crypto-rb/Lobby
+[build-image]: https://github.com/RubyCrypto/x25519/actions/workflows/ci.yml/badge.svg
+[build-link]: https://github.com/RubyCrypto/x25519/actions/workflows/ci.yml
 
 An efficient public key cryptography library for Ruby providing key
 exchange/agreement.
@@ -30,7 +26,7 @@ Curve25519.
 [RFC7748]: https://tools.ietf.org/html/rfc7748
 [How to (pre-)compute a ladder]: https://eprint.iacr.org/2017/264
 [rfc7748_precomputed]: https://github.com/armfazh/rfc7748_precomputed
-[ed25519 gem]: https://github.com/crypto-rb/ed25519
+[ed25519 gem]: https://github.com/RubyCrypto/ed25519
 
 ### Is it any good?
 
@@ -48,7 +44,7 @@ like to use X25519 for public-key encryption. Otherwise, the X25519 algorithm
 is not directly useful for encryption without a higher-level encryption protocol
 built on top of it.
 
-[RbNaCl::Box]: https://github.com/crypto-rb/rbnacl/wiki/Public-Key-Encryption
+[RbNaCl::Box]: https://github.com/RubyCrypto/rbnacl/wiki/Public-Key-Encryption
 [XSTREAM]: https://github.com/miscreant/xstream
 
 ## Help and Discussion
@@ -56,11 +52,11 @@ built on top of it.
 Have questions? Want to suggest a feature or change? Join a discussion group:
 
 * [Crypto.rb Gitter]: web-based chat about Ruby crypto projects including **x25519**.
-* [Crypto.rb Google Group]: join via web or email ([crypto-rb+subscribe@googlegroups.com])
+* [Crypto.rb Google Group]: join via web or email ([RubyCrypto+subscribe@googlegroups.com])
 
-[Crypto.rb Gitter]: https://gitter.im/crypto-rb/Lobby
-[Crypto.rb Google Group]: https://groups.google.com/forum/#!forum/crypto-rb
-[crypto-rb+subscribe@googlegroups.com]: mailto:crypto-rb+subscribe@googlegroups.com?subject=subscribe
+[Crypto.rb Gitter]: https://gitter.im/RubyCrypto/Lobby
+[Crypto.rb Google Group]: https://groups.google.com/forum/#!forum/RubyCrypto
+[RubyCrypto+subscribe@googlegroups.com]: mailto:RubyCrypto+subscribe@googlegroups.com?subject=subscribe
 
 ## Requirements
 
@@ -246,7 +242,7 @@ Returns a `String` containing a 32-byte compressed Montgomery-u coordinate
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/crypto-rb/x25519.
+Bug reports and pull requests are welcome on GitHub at https://github.com/RubyCrypto/x25519.
 This project is intended to be a safe, welcoming space for collaboration,
 and contributors are expected to adhere to the [Contributor Covenant](https://contributor-covenant.org)
 code of conduct.
@@ -298,4 +294,4 @@ BSD-3 Clause License ([LICENSE](./LICENSE))
 Everyone interacting in the x25519.rb project’s codebases, issue trackers, chat
 rooms and mailing lists is expected to follow the [code of conduct].
 
-[code of conduct]: https://github.com/crypto-rb/x25519/blob/master/CODE_OF_CONDUCT.md
+[code of conduct]: https://github.com/RubyCrypto/x25519/blob/master/CODE_OF_CONDUCT.md
