@@ -22,6 +22,6 @@ Gem::Specification.new do |spec|
   spec.platform      = Gem::Platform::RUBY
   spec.extensions    = ["ext/x25519_precomputed/extconf.rb", "ext/x25519_ref10/extconf.rb"]
 
-  spec.required_ruby_version = ">= 2.2.2"
-  spec.add_development_dependency "bundler", "~> 1.16"
+  spec.required_ruby_version = ">= 2.5"
+  spec.add_development_dependency "bundler", "~> 2.1"
 end

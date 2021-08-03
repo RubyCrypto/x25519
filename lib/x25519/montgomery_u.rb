@@ -28,7 +28,7 @@ module X25519
 
     # Show hex representation of serialized coordinate in string inspection
     def inspect
-      "#<#{self.class}:#{@bytes.unpack('H*').first}>"
+      "#<#{self.class}:#{@bytes.unpack1('H*')}>"
     end
   end
 end

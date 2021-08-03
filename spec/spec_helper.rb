@@ -3,9 +3,6 @@
 require "bundler/setup"
 require "x25519"
 require "support/provider_examples"
-require "coveralls"
-
-Coveralls.wear!
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -21,7 +18,7 @@ end
 
 # Convert a binary string to hex
 def hex(string)
-  string.unpack("H*").first
+  string.unpack1("H*")
 end
 
 # Parse a hex string to binary
