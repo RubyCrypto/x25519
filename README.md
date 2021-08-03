@@ -62,7 +62,7 @@ Have questions? Want to suggest a feature or change? Join a discussion group:
 
 **x25519.rb** is supported on and tested against the following platforms:
 
-* MRI 2.2, 2.3, 2.4, 2.5
+- MRI 2.5, 2.6, 2.7, 3.0
 
 ## Installation
 
