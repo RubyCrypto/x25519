@@ -282,7 +282,8 @@ The optimized [rfc7748_precomputed] implementation was designed by:
 
 ## License
 
-Copyright (c) 2017-2018 Armando Faz, Tony Arcieri
+Copyright (c) 2017-2018 Armando Faz
+Copyright (c) 2017-2021 Tony Arcieri
 
 This gem is available as open source under the terms of the
 BSD-3 Clause License ([LICENSE](./LICENSE))
