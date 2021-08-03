@@ -28,6 +28,7 @@ module X25519
     # @return [X25519::MontgomeryU] resulting point (i.e. D-H shared secret)
     def diffie_hellman(montgomery_u)
       raise TypeError, "expected X25519::MontgomeryU, got #{montgomery_u}" unless montgomery_u.is_a?(MontgomeryU)
+
       MontgomeryU.new(X25519.diffie_hellman(@scalar_bytes, montgomery_u.to_bytes))
     end
     alias multiply diffie_hellman

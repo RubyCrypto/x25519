@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - README.md
+  push:
+    branches: main
+    paths-ignore:
+      - README.md
+
+env:
+  BUNDLE_WITHOUT: "development"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby:
+          - ruby-2.5
+          - ruby-2.6
+          - ruby-2.7
+          - ruby-3.0
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - run: bundle exec rake compile
+      - run: bundle exec rake spec
+
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.5
+          bundler-cache: true
+      - run: bundle exec rubocop --format progress --color

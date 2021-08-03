@@ -72,6 +72,7 @@ module X25519
   def validate_key_bytes(key_bytes)
     raise TypeError, "expected String, got #{key_bytes.class}" unless key_bytes.is_a?(String)
     return true if key_bytes.bytesize == KEY_SIZE
+
     raise ArgumentError, "expected #{KEY_SIZE}-byte String, got #{key_bytes.bytesize}"
   end
 
@@ -79,12 +80,12 @@ module X25519
   def self_test
     X25519::TestVectors::VARIABLE_BASE.each do |v|
       shared_secret = provider.scalarmult([v.scalar].pack("H*"), [v.input_coord].pack("H*"))
-      raise SelfTestFailure, "self test failed!" unless shared_secret.unpack("H*").first == v.output_coord
+      raise SelfTestFailure, "self test failed!" unless shared_secret.unpack1("H*") == v.output_coord
     end
 
     X25519::TestVectors::FIXED_BASE.each do |v|
       public_key = provider.scalarmult_base([v.scalar].pack("H*"))
-      raise SelfTestFailure, "self test failed!" unless public_key.unpack("H*").first == v.output_coord
+      raise SelfTestFailure, "self test failed!" unless public_key.unpack1("H*") == v.output_coord
     end
 
     true
