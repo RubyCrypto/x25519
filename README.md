@@ -39,13 +39,11 @@ building block in cryptographic protocols.
 
 ### Can I use X25519 to encrypt things?
 
-Please use [RbNaCl::Box] or the (experimental) [XSTREAM] library if you would
-like to use X25519 for public-key encryption. Otherwise, the X25519 algorithm
-is not directly useful for encryption without a higher-level encryption protocol
-built on top of it.
+Please use [RbNaCl::Box] if you would like a high-level construction which uses
+X25519 for public-key encryption. Otherwise, the X25519 algorithm is not directly
+useful for encryption without a higher-level encryption protocol built on top of it.
 
 [RbNaCl::Box]: https://github.com/RubyCrypto/rbnacl/wiki/Public-Key-Encryption
-[XSTREAM]: https://github.com/miscreant/xstream
 
 ## Help and Discussion
 
