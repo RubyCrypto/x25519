@@ -1,3 +1,12 @@
+## [1.0.9] (2021-08-04)
+
+[1.0.9]: https://github.com/RubyCrypto/x25519/compare/v1.0.8...v1.0.9
+
+- [#23](https://github.com/RubyCrypto/x25519/pull/23)
+  Bump `required_ruby_version` to 2.5
+- [#25](https://github.com/RubyCrypto/x25519/pull/25)
+  Fix SIGILL caused by use of `-march=native` 
+
 ## [1.0.8] (2018-11-08)
 
 [1.0.8]: https://github.com/RubyCrypto/x25519/compare/v1.0.7...v1.0.8
