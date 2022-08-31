@@ -10,7 +10,11 @@ require "x25519/test_vectors"
 
 # Native extension backends
 require "x25519_ref10"
-require "x25519_precomputed"
+begin
+  require "x25519_precomputed"
+rescue LoadError
+  require "x25519/precomputed_not_available"
+end
 
 # The X25519 elliptic curve Diffie-Hellman algorithm
 module X25519
