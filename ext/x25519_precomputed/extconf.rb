@@ -2,9 +2,11 @@
 
 # rubocop:disable Style/GlobalVars
 
-unless RUBY_PLATFORM =~ /arm64-darwin/
-  require "mkmf"
+require "mkmf"
 
+if RUBY_PLATFORM =~ /arm64-darwin/
+  File.write("Makefile", "install clean: ;")
+else
   $CFLAGS << " -Wall -O3 -pedantic -std=c99 -mbmi -mbmi2 -march=haswell"
 
   create_makefile "x25519_precomputed"
