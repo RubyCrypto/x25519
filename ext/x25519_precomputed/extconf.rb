@@ -4,7 +4,7 @@
 
 require "mkmf"
 
-if RUBY_PLATFORM =~ /arm64-darwin/
+if RUBY_PLATFORM =~ /arm64-darwin|aarch64-linux/
   File.write("Makefile", "install clean: ;")
 else
   $CFLAGS << " -Wall -O3 -pedantic -std=c99 -mbmi -mbmi2 -march=haswell"
