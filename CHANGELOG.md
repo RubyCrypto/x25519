@@ -1,8 +1,10 @@
-## [1.0.10] (2021-10-06)
+## [1.0.10] (2022-10-06)
 
 [1.0.10]: https://github.com/RubyCrypto/x25519/compare/v1.0.9...v1.0.10
 
-- [#29](https://github.com/RubyCrypto/x25519/pull/29)
+- [#32](https://github.com/RubyCrypto/x25519/pull/32)
+  Avoid building precomputed on `aarch64-linux`
+- [#29](https://github.com/RubyCrypto/x25519/pull/29), [#31](https://github.com/RubyCrypto/x25519/pull/29)
   Allow usage on Apple silicon
 
 ## [1.0.9] (2021-08-04)
