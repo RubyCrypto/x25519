@@ -4,7 +4,7 @@
 
 - [#32](https://github.com/RubyCrypto/x25519/pull/32)
   Avoid building precomputed on `aarch64-linux`
-- [#29](https://github.com/RubyCrypto/x25519/pull/29), [#31](https://github.com/RubyCrypto/x25519/pull/29)
+- [#29](https://github.com/RubyCrypto/x25519/pull/29), [#31](https://github.com/RubyCrypto/x25519/pull/31)
   Allow usage on Apple silicon
 
 ## [1.0.9] (2021-08-04)
