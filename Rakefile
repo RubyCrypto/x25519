@@ -7,7 +7,7 @@ CLEAN.include("**/*.o", "**/*.so", "**/*.bundle", "pkg", "tmp")
 
 require "rake/extensiontask"
 %w[precomputed ref10].each do |provider|
-  next if provider == "precomputed" && RUBY_PLATFORM =~ /arm64-darwin/
+  next if provider == "precomputed" && RUBY_PLATFORM !~ /x86_64|x64/
 
   Rake::ExtensionTask.new("x25519_#{provider}") do |ext|
     ext.ext_dir = "ext/x25519_#{provider}"
