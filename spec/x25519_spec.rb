@@ -2,7 +2,7 @@
 
 RSpec.describe X25519 do
   it "has a version number" do
-    expect(described_class::VERSION).not_to be nil
+    expect(described_class::VERSION).not_to be_nil
   end
 
   describe ".diffie_hellman" do
@@ -24,7 +24,7 @@ RSpec.describe X25519 do
       end.to raise_error(X25519::InvalidKeyError)
     end
 
-    context "RFC 7748 test vectors" do
+    context "with RFC 7748 test vectors" do
       it "passes the test vectors" do
         X25519::TestVectors::VARIABLE_BASE.each do |v|
           shared_secret = described_class.diffie_hellman(unhex(v.scalar), unhex(v.input_coord))

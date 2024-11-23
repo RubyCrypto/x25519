@@ -1,6 +1,12 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 2.5
   DisplayCopNames: true
+  NewCops: enable
 
 #
 # Metrics
@@ -36,3 +42,13 @@ Style/FrozenStringLiteralComment:
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+#
+# RSpec
+#
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/ExampleLength:
+  Max: 6

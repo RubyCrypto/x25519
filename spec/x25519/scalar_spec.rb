@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe X25519::Scalar do
-  let(:scalar_hex) { "a546e36bf0527c9d3b16154b82465edd62144c0ac1fc5a18506a2244ba449ac4" }
-
   subject(:scalar) { described_class.new(unhex(scalar_hex)) }
+
+  let(:scalar_hex) { "a546e36bf0527c9d3b16154b82465edd62144c0ac1fc5a18506a2244ba449ac4" }
 
   describe ".generate" do
     it "generates random keys" do
@@ -21,7 +21,7 @@ RSpec.describe X25519::Scalar do
       expect { scalar.multiply("derp") }.to raise_error(TypeError)
     end
 
-    context "RFC 7748 test vectors" do
+    context "with RFC 7748 test vectors" do
       it "passes the test vectors" do
         X25519::TestVectors::VARIABLE_BASE.each do |v|
           scalar = described_class.new(unhex(v.scalar))
@@ -35,7 +35,7 @@ RSpec.describe X25519::Scalar do
   end
 
   describe "#multiply_base" do
-    context "RFC 7748 test vectors" do
+    context "with RFC 7748 test vectors" do
       it "passes the test vectors" do
         X25519::TestVectors::FIXED_BASE.each do |v|
           scalar = described_class.new(unhex(v.scalar))
