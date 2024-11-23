@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require File.expand_path("lib/x25519/version", __dir__)
+require_relative "lib/x25519/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "x25519"
@@ -16,12 +16,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/RubyCrypto/x25519"
   spec.license       = "BSD-3-Clause" # https://spdx.org/licenses/BSD-3-Clause.html
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
   spec.platform      = Gem::Platform::RUBY
   spec.extensions    = ["ext/x25519_precomputed/extconf.rb", "ext/x25519_ref10/extconf.rb"]
 
   spec.required_ruby_version = ">= 2.5"
-  spec.add_development_dependency "bundler", "~> 2.1"
 end
