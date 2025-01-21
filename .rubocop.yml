@@ -9,6 +9,13 @@ AllCops:
   NewCops: enable
 
 #
+# Gemspec
+#
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+#
 # Metrics
 #
 
