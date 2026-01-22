@@ -1,3 +1,12 @@
+## [1.0.11] (2026-01-22)
+
+- [#38](https://github.com/RubyCrypto/x25519/pull/38)
+  Drop support for Ruby 2.5/2.6
+- [#36](https://github.com/RubyCrypto/x25519/pull/36)
+  Add automatic fallback for non-x86_64 targets.
+
+[1.0.11]: https://github.com/RubyCrypto/x25519/compare/v1.0.10...v1.0.11
+
 ## [1.0.10] (2022-10-06)
 
 [1.0.10]: https://github.com/RubyCrypto/x25519/compare/v1.0.9...v1.0.10
